@@ -108,6 +108,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="removeSelectedFeed:" target="-2" id="T56-iU-i8W"/>
+                        </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yqn-sD-BSF">
                         <rect key="frame" x="394" y="9" width="21" height="21"/>
@@ -136,7 +139,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="1088" y="794" width="407" height="97"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="o9R-pJ-xjd">
                 <rect key="frame" x="0.0" y="0.0" width="407" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>

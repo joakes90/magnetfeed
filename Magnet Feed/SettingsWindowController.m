@@ -68,6 +68,13 @@
     }
 }
 
+
+- (IBAction)removeSelectedFeed:(id)sender {
+    [[Stack sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:[self.tableView selectedRow]]];
+    [[Stack sharedInstance].managedObjectContext save:nil];
+    [self.tableView reloadData];
+}
+
 - (BOOL)verifyURLisFeed:(NSURL *)url {
     NSXMLParser *testParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
     return [testParser parse];
