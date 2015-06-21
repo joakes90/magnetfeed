@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02358391B3566830032A054 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D02358381B3566830032A054 /* Torrent.m */; };
+		D023583C1B3566840032A054 /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = D023583B1B3566840032A054 /* Source.m */; };
 		D0780B851B35397D0034D275 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780B841B35397D0034D275 /* AppDelegate.m */; };
 		D0780B871B35397D0034D275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780B861B35397D0034D275 /* main.m */; };
 		D0780B891B35397D0034D275 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0780B881B35397D0034D275 /* Images.xcassets */; };
 		D0780B8C1B35397D0034D275 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0780B8A1B35397D0034D275 /* MainMenu.xib */; };
 		D0780B981B35397D0034D275 /* Magnet_FeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780B971B35397D0034D275 /* Magnet_FeedTests.m */; };
+		D0780BA31B3539B40034D275 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BA21B3539B40034D275 /* XMLParser.m */; };
+		D0780BA61B353A4D0034D275 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0780BA41B353A4D0034D275 /* Model.xcdatamodeld */; };
+		D0780BA91B353BB40034D275 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BA81B353BB40034D275 /* Stack.m */; };
+		D0780BAB1B353BED0034D275 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0780BAA1B353BED0034D275 /* CoreData.framework */; };
+		D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BB31B354A110034D275 /* SettingsWindowController.m */; };
+		D0780BB61B354A110034D275 /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0780BB41B354A110034D275 /* SettingsWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D02358371B3566830032A054 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
+		D02358381B3566830032A054 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
+		D023583A1B3566840032A054 /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
+		D023583B1B3566840032A054 /* Source.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Source.m; sourceTree = "<group>"; };
 		D0780B7E1B35397D0034D275 /* Magnet Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magnet Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0780B821B35397D0034D275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0780B831B35397D0034D275 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +47,15 @@
 		D0780B911B35397D0034D275 /* Magnet FeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magnet FeedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0780B961B35397D0034D275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0780B971B35397D0034D275 /* Magnet_FeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Magnet_FeedTests.m; sourceTree = "<group>"; };
+		D0780BA11B3539B40034D275 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		D0780BA21B3539B40034D275 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		D0780BA51B353A4D0034D275 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D0780BA71B353BB40034D275 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		D0780BA81B353BB40034D275 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		D0780BAA1B353BED0034D275 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D0780BB21B354A110034D275 /* SettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowController.h; sourceTree = "<group>"; };
+		D0780BB31B354A110034D275 /* SettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
+		D0780BB41B354A110034D275 /* SettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0780BAB1B353BED0034D275 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +80,7 @@
 		D0780B751B35397D0034D275 = {
 			isa = PBXGroup;
 			children = (
+				D0780BAA1B353BED0034D275 /* CoreData.framework */,
 				D0780B801B35397D0034D275 /* Magnet Feed */,
 				D0780B941B35397D0034D275 /* Magnet FeedTests */,
 				D0780B7F1B35397D0034D275 /* Products */,
@@ -76,8 +99,15 @@
 		D0780B801B35397D0034D275 /* Magnet Feed */ = {
 			isa = PBXGroup;
 			children = (
+				D0780BB71B355EAA0034D275 /* Model Objects */,
+				D0780BAC1B353FA50034D275 /* ViewControllers */,
 				D0780B831B35397D0034D275 /* AppDelegate.h */,
 				D0780B841B35397D0034D275 /* AppDelegate.m */,
+				D0780BA11B3539B40034D275 /* XMLParser.h */,
+				D0780BA21B3539B40034D275 /* XMLParser.m */,
+				D0780BA41B353A4D0034D275 /* Model.xcdatamodeld */,
+				D0780BA71B353BB40034D275 /* Stack.h */,
+				D0780BA81B353BB40034D275 /* Stack.m */,
 				D0780B881B35397D0034D275 /* Images.xcassets */,
 				D0780B8A1B35397D0034D275 /* MainMenu.xib */,
 				D0780B811B35397D0034D275 /* Supporting Files */,
@@ -109,6 +139,27 @@
 				D0780B961B35397D0034D275 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0780BAC1B353FA50034D275 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0780BB21B354A110034D275 /* SettingsWindowController.h */,
+				D0780BB31B354A110034D275 /* SettingsWindowController.m */,
+				D0780BB41B354A110034D275 /* SettingsWindowController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D0780BB71B355EAA0034D275 /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D023583A1B3566840032A054 /* Source.h */,
+				D023583B1B3566840032A054 /* Source.m */,
+				D02358371B3566830032A054 /* Torrent.h */,
+				D02358381B3566830032A054 /* Torrent.m */,
+			);
+			name = "Model Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0780B891B35397D0034D275 /* Images.xcassets in Resources */,
+				D0780BB61B354A110034D275 /* SettingsWindowController.xib in Resources */,
 				D0780B8C1B35397D0034D275 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +263,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0780B871B35397D0034D275 /* main.m in Sources */,
+				D02358391B3566830032A054 /* Torrent.m in Sources */,
+				D0780BA31B3539B40034D275 /* XMLParser.m in Sources */,
 				D0780B851B35397D0034D275 /* AppDelegate.m in Sources */,
+				D023583C1B3566840032A054 /* Source.m in Sources */,
+				D0780BA91B353BB40034D275 /* Stack.m in Sources */,
+				D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */,
+				D0780BA61B353A4D0034D275 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +459,7 @@
 				D0780B9D1B35397D0034D275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0780B9E1B35397D0034D275 /* Build configuration list for PBXNativeTarget "Magnet FeedTests" */ = {
 			isa = XCConfigurationList;
@@ -409,8 +468,22 @@
 				D0780BA01B35397D0034D275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0780BA41B353A4D0034D275 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0780BA51B353A4D0034D275 /* Model.xcdatamodel */,
+			);
+			currentVersion = D0780BA51B353A4D0034D275 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D0780B761B35397D0034D275 /* Project object */;
 }
