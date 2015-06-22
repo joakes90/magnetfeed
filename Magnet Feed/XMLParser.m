@@ -47,13 +47,18 @@
 -(void) removeDuplicatesFromTorrentsArray {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
     NSArray *existingTorrents = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
+    NSMutableArray *torrentsToRemove = [[NSMutableArray alloc] init];
     for (NSMutableDictionary *newTorrent in self.arrayOfNewTorrents) {
+        NSString *link = newTorrent[@"link"];
         for (Torrent *oldTorrent in existingTorrents) {
-            if ([oldTorrent.link isEqualToString:newTorrent[@"link"]]) {
-                [self.arrayOfNewTorrents removeObject:newTorrent];
+            if ([oldTorrent.link isEqualToString:link]) {
+                [torrentsToRemove addObject:newTorrent];
             }
         }
+    }
+    
+    for (Torrent *badTorrent in torrentsToRemove) {
+        [self.arrayOfNewTorrents removeObject:badTorrent];
     }
     NSLog(@"%@", self.arrayOfNewTorrents);
     [self createTorrentManagedObjects];
