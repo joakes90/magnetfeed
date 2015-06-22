@@ -11,7 +11,6 @@
 		D023583C1B3566840032A054 /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = D023583B1B3566840032A054 /* Source.m */; };
 		D05B12BA1B372802008D62FA /* TorrentsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05B12B81B372802008D62FA /* TorrentsWindowController.m */; };
 		D05B12BB1B372802008D62FA /* TorrentsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05B12B91B372802008D62FA /* TorrentsWindowController.xib */; };
-		D05B12C71B378D41008D62FA /* TorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D05B12C61B378D41008D62FA /* TorrentCell.m */; };
 		D0780B851B35397D0034D275 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780B841B35397D0034D275 /* AppDelegate.m */; };
 		D0780B871B35397D0034D275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780B861B35397D0034D275 /* main.m */; };
 		D0780B891B35397D0034D275 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0780B881B35397D0034D275 /* Images.xcassets */; };
@@ -43,8 +42,6 @@
 		D05B12B71B372802008D62FA /* TorrentsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentsWindowController.h; sourceTree = "<group>"; };
 		D05B12B81B372802008D62FA /* TorrentsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentsWindowController.m; sourceTree = "<group>"; };
 		D05B12B91B372802008D62FA /* TorrentsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TorrentsWindowController.xib; sourceTree = "<group>"; };
-		D05B12C51B378D41008D62FA /* TorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentCell.h; sourceTree = "<group>"; };
-		D05B12C61B378D41008D62FA /* TorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentCell.m; sourceTree = "<group>"; };
 		D0780B7E1B35397D0034D275 /* Magnet Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magnet Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0780B821B35397D0034D275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0780B831B35397D0034D275 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,8 +166,6 @@
 				D023583B1B3566840032A054 /* Source.m */,
 				D02358371B3566830032A054 /* Torrent.h */,
 				D02358381B3566830032A054 /* Torrent.m */,
-				D05B12C51B378D41008D62FA /* TorrentCell.h */,
-				D05B12C61B378D41008D62FA /* TorrentCell.m */,
 			);
 			name = "Model Objects";
 			sourceTree = "<group>";
@@ -278,7 +273,6 @@
 			files = (
 				D0780B871B35397D0034D275 /* main.m in Sources */,
 				D02358391B3566830032A054 /* Torrent.m in Sources */,
-				D05B12C71B378D41008D62FA /* TorrentCell.m in Sources */,
 				D0780BA31B3539B40034D275 /* XMLParser.m in Sources */,
 				D05B12BA1B372802008D62FA /* TorrentsWindowController.m in Sources */,
 				D0780B851B35397D0034D275 /* AppDelegate.m in Sources */,

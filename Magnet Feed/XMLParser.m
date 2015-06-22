@@ -60,7 +60,6 @@
     for (Torrent *badTorrent in torrentsToRemove) {
         [self.arrayOfNewTorrents removeObject:badTorrent];
     }
-    NSLog(@"%@", self.arrayOfNewTorrents);
     [self createTorrentManagedObjects];
 }
 

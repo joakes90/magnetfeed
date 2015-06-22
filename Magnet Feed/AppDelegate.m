@@ -51,6 +51,7 @@
 - (IBAction)seeDownloads:(id)sender {
     self.torrentsWindow = [[TorrentsWindowController alloc] initWithWindowNibName:@"TorrentsWindowController"];
     [self.torrentsWindow showWindow:self];
+    [self.torrentsWindow.window orderFront:self];
 }
 
 -(void)getNewTorrents {

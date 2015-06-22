@@ -7,8 +7,14 @@
 //
 
 #import "TorrentsWindowController.h"
+#import "Torrent.h"
+#import "Stack.h"
 
-@interface TorrentsWindowController ()
+@interface TorrentsWindowController () <NSTableViewDataSource, NSTableViewDelegate>
+
+@property (strong) IBOutlet NSTableView *tableView;
+
+@property (strong, nonatomic) NSArray *torrentArray;
 
 @end
 
@@ -17,9 +23,15 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     self.window = self.downloadsWindow;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
+    self.torrentArray = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
 }
 
-- (IBAction)downloadTorrent:(id)sender {
+- (IBAction)downloadTorrent:(id)sender
+{
+    
 }
 
 @end
