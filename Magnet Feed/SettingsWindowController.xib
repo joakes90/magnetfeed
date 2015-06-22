@@ -183,7 +183,7 @@
                     <constraint firstItem="aB2-is-6Yr" firstAttribute="centerY" secondItem="o9R-pJ-xjd" secondAttribute="centerY" id="zPL-ih-ybB"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="208.5" y="544.5"/>
+            <point key="canvasLocation" x="-159.5" y="421.5"/>
         </window>
     </objects>
 </document>

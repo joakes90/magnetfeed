@@ -53,6 +53,7 @@
 
 - (NSURL*)storeURL
 {
+    //chang documents later
     NSURL* documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:NULL];
     return [documentsDirectory URLByAppendingPathComponent:@"db.sqlite"];
 }

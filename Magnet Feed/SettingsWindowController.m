@@ -9,6 +9,7 @@
 #import "SettingsWindowController.h"
 #import "Stack.h"
 #import "Source.h"
+#import "AppDelegate.h"
 
 @interface SettingsWindowController () <NSTableViewDataSource, NSTableViewDelegate>
 
@@ -63,6 +64,8 @@
             [[Stack sharedInstance].managedObjectContext save:nil];
             self.sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Source"] error:nil];
             [self.tableView reloadData];
+            AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
+            [appDelegate getNewTorrents];
             [self.addFeedWindow close];
         }
     }

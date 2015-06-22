@@ -64,17 +64,25 @@
 }
 
 -(void)createTorrentManagedObjects {
-    for (NSMutableDictionary *torrentDictioanry in self.arrayOfNewTorrents) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
-        NSDate *date = [dateFormatter dateFromString:torrentDictioanry[@"pubDate"]];
-        Torrent *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Torrent" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-        newManagedObject.name = torrentDictioanry[@"title"];
-        newManagedObject.link = torrentDictioanry[@"link"];
-        newManagedObject.date = date;
-        newManagedObject.source = self.sourceBeingParced;
+    if (self.arrayOfNewTorrents.count > 0) {
+        for (NSMutableDictionary *torrentDictioanry in self.arrayOfNewTorrents) {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
+            NSDate *date = [dateFormatter dateFromString:torrentDictioanry[@"pubDate"]];
+            Torrent *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Torrent" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+            newManagedObject.name = torrentDictioanry[@"title"];
+            newManagedObject.link = torrentDictioanry[@"link"];
+            newManagedObject.date = date;
+            newManagedObject.source = self.sourceBeingParced;
+        }
+        [[Stack sharedInstance].managedObjectContext save:nil];
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = @"New Downloads Available";
+        notification.informativeText = @"New files are ready to be downloaded now";
+        notification.soundName = NSUserNotificationDefaultSoundName;
+        
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
-    [[Stack sharedInstance].managedObjectContext save:nil];
 }
 
 #pragma mark NSXMLParserDelegate Methods

@@ -25,8 +25,11 @@
     self.window = self.downloadsWindow;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
-    self.torrentArray = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSMutableArray *torrentArray = [[[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
+    NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
+   self.torrentArray = [torrentArray sortedArrayUsingDescriptors:sortDescripters];
 }
 
 - (IBAction)downloadTorrent:(id)sender
