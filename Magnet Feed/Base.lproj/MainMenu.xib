@@ -660,8 +660,14 @@
                         <action selector="openSettings:" target="Voe-Tx-rLC" id="vp9-xV-t98"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Quit Magnet Feed" id="4Ha-OH-86R">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quit:" target="Voe-Tx-rLC" id="zFX-KM-2rk"/>
+                    </connections>
+                </menuItem>
             </items>
-            <point key="canvasLocation" x="514" y="564.5"/>
+            <point key="canvasLocation" x="187.5" y="394.5"/>
         </menu>
     </objects>
 </document>

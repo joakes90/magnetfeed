@@ -32,7 +32,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:-1.0];
-    self.statusItem.title = @"temp text";
+    self.statusItem.image = [NSImage imageNamed:@"Magnet"];
     self.statusItem.menu = self.menu;
     
     [self getNewTorrents];
@@ -63,5 +63,9 @@
     for (Source *source in sources) {
         [[XMLParser sharedInstance] parseWithSource:source];
     }
+}
+
+- (IBAction)quit:(id)sender {
+    [[NSApplication sharedApplication] terminate:self];
 }
 @end

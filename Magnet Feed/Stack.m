@@ -53,9 +53,15 @@
 
 - (NSURL*)storeURL
 {
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:[[@"~/Library/Application Support/MagnetFeed" stringByExpandingTildeInPath] stringByStandardizingPath]  isDirectory:nil];
+    
+    if (!fileExists) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:[@"~/Library/Application Support/MagnetFeed" stringByStandardizingPath] withIntermediateDirectories:YES attributes:nil error:nil];
+    }
     //chang documents later
     NSURL* documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:NULL];
-    return [documentsDirectory URLByAppendingPathComponent:@"db.sqlite"];
+
+    return [documentsDirectory URLByAppendingPathComponent:@"MagnetFeed/db.sqlite"];
 }
 
 - (NSURL*)modelURL
