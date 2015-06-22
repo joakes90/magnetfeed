@@ -24,6 +24,7 @@
 
 @property (weak) IBOutlet NSMenu *menu;
 
+@property (strong, nonatomic) NSTimer *checkforUpdates;
 
 @end
 
@@ -34,8 +35,9 @@
     self.statusItem.title = @"temp text";
     self.statusItem.menu = self.menu;
     
-    //remove when done testing
     [self getNewTorrents];
+    
+    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(checkforUpdates) userInfo:nil repeats:YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
