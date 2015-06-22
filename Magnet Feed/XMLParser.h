@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMLParser : NSObject
+@interface XMLParser : NSObject <NSXMLParserDelegate>
+
++ (instancetype) sharedInstance;
 
 @end

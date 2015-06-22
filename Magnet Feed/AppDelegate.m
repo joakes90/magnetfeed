@@ -8,12 +8,19 @@
 
 #import "AppDelegate.h"
 #import "SettingsWindowController.h"
+#import "TorrentsWindowController.h"
+#import "Stack.h"
+#import "Source.h"
+#import "XMLParser.h"
+
 
 @interface AppDelegate ()
 
 @property (strong, nonatomic) NSStatusItem *statusItem;
 
 @property (strong, nonatomic) SettingsWindowController *settingsWindow;
+
+@property (strong, nonatomic) TorrentsWindowController *torrentsWindow;
 
 @property (weak) IBOutlet NSMenu *menu;
 
@@ -38,4 +45,20 @@
     
 }
 
+- (IBAction)seeDownloads:(id)sender {
+    self.torrentsWindow = [[TorrentsWindowController alloc] initWithWindowNibName:@"TorrentsWindowController"];
+    [self.torrentsWindow showWindow:self];
+}
+
+-(void)getNewTorrents {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
+    NSArray *sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    for (Source *source in sources) {
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:source.url]];
+        parser.delegate = [XMLParser sharedInstance];
+        
+        [parser parse];
+    }
+}
 @end

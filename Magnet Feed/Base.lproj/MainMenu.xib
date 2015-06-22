@@ -648,6 +648,12 @@
         </menu>
         <menu id="f56-98-PfB">
             <items>
+                <menuItem title="Available Downloads" id="0sc-9q-tnR">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="seeDownloads:" target="Voe-Tx-rLC" id="7qb-aS-Dpk"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Settings" id="9F7-a7-XkU">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
