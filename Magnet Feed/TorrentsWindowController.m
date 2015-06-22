@@ -32,9 +32,12 @@
    self.torrentArray = [torrentArray sortedArrayUsingDescriptors:sortDescripters];
 }
 
-- (IBAction)downloadTorrent:(id)sender
-{
+- (IBAction)downloadTorrent:(id)sender {
+    NSInteger row = [self.tableView rowForView:sender];
+    Torrent *torrent = self.torrentArray[row];
+    NSURL *torrentURL = [NSURL URLWithString:torrent.link];
     
+    [[NSWorkspace sharedWorkspace] openURL:torrentURL];
 }
 
 @end
