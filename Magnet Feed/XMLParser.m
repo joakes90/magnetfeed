@@ -10,6 +10,7 @@
 #import "Stack.h"
 #import "Torrent.h"
 
+
 @interface XMLParser () 
 
 @property (strong, nonatomic) NSMutableDictionary *torrent;
@@ -17,6 +18,8 @@
 @property (strong, nonatomic) NSMutableArray *arrayOfNewTorrents;
 
 @property (strong, nonatomic) NSString *elementBeingParced;
+
+@property (strong, nonatomic) Source *sourceBeingParced;
 
 @end
 
@@ -31,6 +34,16 @@
     return sharedInstance;
 }
 
+-(void)parseWithSource:(Source *)source {
+    self.sourceBeingParced = source;
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:source.url]];
+    parser.delegate = self;
+    
+    [parser parse];
+}
+
+#pragma mark Torrent collection building methods
+
 -(void) removeDuplicatesFromTorrentsArray {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
     NSArray *existingTorrents = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
@@ -42,23 +55,45 @@
             }
         }
     }
+    NSLog(@"%@", self.arrayOfNewTorrents);
+    [self createTorrentManagedObjects];
+}
+
+-(void)createTorrentManagedObjects {
+    for (NSMutableDictionary *torrentDictioanry in self.arrayOfNewTorrents) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
+        NSDate *date = [dateFormatter dateFromString:torrentDictioanry[@"pubDate"]];
+        Torrent *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Torrent" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+        newManagedObject.name = torrentDictioanry[@"title"];
+        newManagedObject.link = torrentDictioanry[@"link"];
+        newManagedObject.date = date;
+        newManagedObject.source = self.sourceBeingParced;
+    }
+    [[Stack sharedInstance].managedObjectContext save:nil];
 }
 
 #pragma mark NSXMLParserDelegate Methods
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-    
+    if ([elementName isEqualToString:@"channel"]) {
+        self.arrayOfNewTorrents = [[NSMutableArray alloc] init];
+    }
     if ([elementName isEqualToString:@"item"]) {
         self.torrent = [[NSMutableDictionary alloc] init];
     }
+    
+    self.elementBeingParced = elementName;
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     if ([self.elementBeingParced isEqualToString:@"title"]) {
         self.torrent[@"title"] = string;
     }
-    if ([self.elementBeingParced isEqualToString:@"link"]) {
+    if ([self.elementBeingParced isEqualToString:@"link"] && !self.torrent[@"link"]) {
         self.torrent[@"link"] = string;
+    } else if ([self.elementBeingParced isEqualToString:@"link"] && self.torrent[@"link"]){
+        self.torrent[@"link"] = [NSString stringWithFormat:@"%@%@", self.torrent[@"link"], string];
     }
     if ([self.elementBeingParced isEqualToString:@"pubDate"]) {
         self.torrent[@"pubDate"] = string;
@@ -71,10 +106,11 @@
         [self.arrayOfNewTorrents addObject:self.torrent];
     }
     if ([elementName isEqualToString:@"channel"]) {
-        [self removeDuplicatesFromTorrentsArray];
-    }
-    if ([elementName isEqualToString:@"rss"]) {
-        NSLog(@"%@", self.arrayOfNewTorrents);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self removeDuplicatesFromTorrentsArray];
+        });
+        
     }
 }
 

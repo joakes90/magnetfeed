@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Source.h"
 
 @interface XMLParser : NSObject <NSXMLParserDelegate>
 
 + (instancetype) sharedInstance;
+
+-(void)parseWithSource:(Source *)source;
 
 @end

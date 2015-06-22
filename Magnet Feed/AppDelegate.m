@@ -33,6 +33,9 @@
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:-1.0];
     self.statusItem.title = @"temp text";
     self.statusItem.menu = self.menu;
+    
+    //remove when done testing
+    [self getNewTorrents];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -55,10 +58,7 @@
     NSArray *sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
     for (Source *source in sources) {
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:source.url]];
-        parser.delegate = [XMLParser sharedInstance];
-        
-        [parser parse];
+        [[XMLParser sharedInstance] parseWithSource:source];
     }
 }
 @end
