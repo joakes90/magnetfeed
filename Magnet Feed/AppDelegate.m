@@ -37,7 +37,7 @@
     
     [self getNewTorrents];
     
-    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(checkforUpdates) userInfo:nil repeats:YES];
+    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(getNewTorrents) userInfo:nil repeats:YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

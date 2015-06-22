@@ -9,6 +9,7 @@
 #import "XMLParser.h"
 #import "Stack.h"
 #import "Torrent.h"
+#import <Cocoa/Cocoa.h>
 
 
 @interface XMLParser () 
@@ -80,8 +81,14 @@
         notification.title = @"New Downloads Available";
         notification.informativeText = @"New files are ready to be downloaded now";
         notification.soundName = NSUserNotificationDefaultSoundName;
-        
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
+            for (NSMutableDictionary *torrentDictionary in self.arrayOfNewTorrents) {
+                NSURL *downloadURL = [NSURL URLWithString:torrentDictionary[@"link"]];
+                [[NSWorkspace sharedWorkspace] openURL:downloadURL];
+            }
+        }
     }
 }
 

@@ -24,6 +24,8 @@
 
 @property (strong) IBOutlet NSPanel *addFeedWindow;
 
+@property (strong) IBOutlet NSMatrix *autoDownloadMatrix;
+
 @end
 
 @implementation SettingsWindowController
@@ -36,6 +38,13 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
     self.sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     [self.tableView reloadData];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
+        [self.autoDownloadMatrix selectCellAtRow:0 column:0];
+    } else {
+        [self.autoDownloadMatrix selectCellAtRow:0 column:1];
+        
+    }
 }
 
 
@@ -82,4 +91,13 @@
     NSXMLParser *testParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
     return [testParser parse];
 }
+
+- (IBAction)matrixChangedStates:(id)sender {
+    if (self.autoDownloadMatrix.selectedColumn == 0) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"autoDownload"];
+    }else{
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"autoDownload"];
+    }
+}
+
 @end

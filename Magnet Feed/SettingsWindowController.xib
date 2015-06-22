@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="SettingsWindow" destination="5xF-7L-LSG" id="jyu-ws-mC6"/>
                 <outlet property="addFeedWindow" destination="Xbk-lq-gA8" id="a15-w2-Wev"/>
+                <outlet property="autoDownloadMatrix" destination="Yir-EM-bBp" id="6bd-qg-a42"/>
                 <outlet property="tableView" destination="Bbp-Ae-qub" id="fGS-vt-Vbo"/>
                 <outlet property="urlTextField" destination="9G4-Yz-lYz" id="fdM-cg-uwq"/>
             </connections>
@@ -81,18 +82,21 @@
                         </buttonCell>
                         <cells>
                             <column>
-                                <buttonCell type="radio" title="Yes" imagePosition="left" alignment="left" state="on" tag="1" inset="2" id="JZx-en-WMR">
+                                <buttonCell type="radio" title="Yes" imagePosition="left" alignment="left" tag="1" inset="2" id="JZx-en-WMR">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </column>
                             <column>
-                                <buttonCell type="radio" title="No" imagePosition="left" alignment="left" inset="2" id="d5t-CL-Lch">
+                                <buttonCell type="radio" title="No" imagePosition="left" alignment="left" state="on" inset="2" id="d5t-CL-Lch">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </column>
                         </cells>
+                        <connections>
+                            <action selector="matrixChangedStates:" target="-2" id="UgN-sf-U0S"/>
+                        </connections>
                     </matrix>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8tz-N4-NYN">
                         <rect key="frame" x="18" y="160" width="140" height="17"/>
@@ -133,7 +137,7 @@
                     <constraint firstItem="Yir-EM-bBp" firstAttribute="top" secondItem="8tz-N4-NYN" secondAttribute="top" id="tfb-B2-VgI"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-148.5" y="132.5"/>
+            <point key="canvasLocation" x="-476.5" y="142.5"/>
         </window>
         <window title="Add Feed" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Xbk-lq-gA8" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
@@ -183,7 +187,7 @@
                     <constraint firstItem="aB2-is-6Yr" firstAttribute="centerY" secondItem="o9R-pJ-xjd" secondAttribute="centerY" id="zPL-ih-ybB"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-159.5" y="421.5"/>
+            <point key="canvasLocation" x="-487.5" y="431.5"/>
         </window>
     </objects>
 </document>
