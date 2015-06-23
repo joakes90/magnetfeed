@@ -31,8 +31,10 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    NSImage *icon = [NSImage imageNamed:@"Magnet"];
+    [icon setTemplate:YES];
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:-1.0];
-    self.statusItem.image = [NSImage imageNamed:@"Magnet"];
+    self.statusItem.image = icon;
     self.statusItem.menu = self.menu;
     
     [self getNewTorrents];
