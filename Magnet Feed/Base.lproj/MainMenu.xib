@@ -660,6 +660,12 @@
                         <action selector="openSettings:" target="Voe-Tx-rLC" id="vp9-xV-t98"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Check for updates" id="gqX-0d-GNC">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                    <connections>
+                        <action selector="checkForUpdates:" target="BF6-iD-xeR" id="0yj-an-Du8"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit Magnet Feed" id="4Ha-OH-86R">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -669,5 +675,6 @@
             </items>
             <point key="canvasLocation" x="187.5" y="394.5"/>
         </menu>
+        <customObject id="BF6-iD-xeR" customClass="SUUpdater"/>
     </objects>
 </document>
