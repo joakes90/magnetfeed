@@ -13,6 +13,7 @@
 @interface TorrentsWindowController () <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (strong) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSScrollView *tableViewContainer;
 
 @property (strong, nonatomic) NSArray *torrentArray;
 
@@ -29,7 +30,7 @@
     
     NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
-   self.torrentArray = [torrentArray sortedArrayUsingDescriptors:sortDescripters];
+    self.torrentArray = [torrentArray sortedArrayUsingDescriptors:sortDescripters];
 }
 
 - (IBAction)downloadTorrent:(id)sender {
@@ -44,7 +45,9 @@
 #pragma mark Tableview Datasource Methods
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return self.torrentArray.count;
+    NSInteger rows = self.torrentArray.count;
+    [self.tableViewContainer setHidden:(rows == 0)];
+    return rows;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
