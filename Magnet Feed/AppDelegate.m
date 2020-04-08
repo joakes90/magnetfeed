@@ -31,15 +31,11 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    NSImage *icon = [NSImage imageNamed:@"Magnet"];
-    [icon setTemplate:YES];
-    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:-1.0];
-    self.statusItem.image = icon;
-    self.statusItem.menu = self.menu;
-    
     [self getNewTorrents];
-    
+    // TODO: create a user manipulable timer
     self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(getNewTorrents) userInfo:nil repeats:YES];
+    self.torrentsWindow = [[TorrentsWindowController alloc] initWithWindowNibName: @"TorrentsWindowController"];
+    [self.torrentsWindow showWindow:self];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
