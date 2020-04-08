@@ -40,4 +40,17 @@
     [[NSWorkspace sharedWorkspace] openURL:torrentURL];
 }
 
+
+#pragma mark Tableview Datasource Methods
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return self.torrentArray.count;
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSTableCellView *cell = [tableView makeViewWithIdentifier:@"cell" owner:self];
+    Torrent *torrent = self.torrentArray[row];
+    [cell.textField setStringValue:torrent.name];
+    return cell;
+}
 @end

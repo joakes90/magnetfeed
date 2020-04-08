@@ -24,14 +24,18 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="MagnetFeed" systemMenu="apple" id="epI-lM-Bv9">
                         <items>
-                            <menuItem title="About SongBar" id="hrg-kR-N9x">
+                            <menuItem title="About MagnetFeed" id="hrg-kR-N9x">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="kly-6j-P8b"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="2HL-6a-ESw"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="buV-IE-ffV"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="buV-IE-ffV">
+                                <connections>
+                                    <action selector="openSettings:" target="Voe-Tx-rLC" id="Ozo-bP-I2H"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="L2Z-jK-Rhf"/>
                             <menuItem title="Services" id="YQW-am-vdP">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -56,7 +60,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="nA1-Cb-MJd"/>
-                            <menuItem title="Quit SongBar" keyEquivalent="q" id="jSF-xM-1lf">
+                            <menuItem title="Quit MagnetFeed" keyEquivalent="q" id="jSF-xM-1lf">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="V14-rj-8y1"/>
                                 </connections>
@@ -658,9 +662,6 @@
                 </menuItem>
                 <menuItem title="Settings" id="9F7-a7-XkU">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="openSettings:" target="Voe-Tx-rLC" id="vp9-xV-t98"/>
-                    </connections>
                 </menuItem>
                 <menuItem title="Check for updates" id="gqX-0d-GNC">
                     <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
