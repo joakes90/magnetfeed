@@ -61,10 +61,10 @@
     for (Torrent *badTorrent in torrentsToRemove) {
         [self.arrayOfNewTorrents removeObject:badTorrent];
     }
-    [self createTorrentManagedObjects];
 }
 
 -(void)createTorrentManagedObjects {
+    NSMutableArray *torrentManagedObjects = [[NSMutableArray alloc] init];
     if (self.arrayOfNewTorrents.count > 0) {
         for (NSMutableDictionary *torrentDictioanry in self.arrayOfNewTorrents) {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -75,13 +75,19 @@
             newManagedObject.link = torrentDictioanry[@"link"];
             newManagedObject.date = date;
             newManagedObject.source = self.sourceBeingParced;
+            [torrentManagedObjects addObject:newManagedObject];
         }
-        [[Stack sharedInstance].managedObjectContext save:nil];
-        NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.title = @"New Downloads Available";
-        notification.informativeText = @"New files are ready to be downloaded now";
-        notification.soundName = NSUserNotificationDefaultSoundName;
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        NSError *error;
+        [[Stack sharedInstance].managedObjectContext save:&error];
+        NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
+                                                                     object:nil
+                                                                   userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        NSUserNotification *userNotification = [[NSUserNotification alloc] init];
+        userNotification.title = @"New Downloads Available";
+        userNotification.informativeText = @"New files are ready to be downloaded now";
+        userNotification.soundName = NSUserNotificationDefaultSoundName;
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
         
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
             for (NSMutableDictionary *torrentDictionary in self.arrayOfNewTorrents) {
@@ -128,6 +134,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self removeDuplicatesFromTorrentsArray];
+            [self createTorrentManagedObjects];
         });
         
     }

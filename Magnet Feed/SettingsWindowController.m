@@ -72,11 +72,13 @@
             newSource.url = urlString;
             [[Stack sharedInstance].managedObjectContext save:nil];
             self.sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Source"] error:nil];
-            [self.tableView reloadData];
             AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
             [appDelegate getNewTorrents];
-            [self.addFeedWindow close];
+        } else {
+            // TODO: Tell the user that feed already exists
         }
+        [self.tableView reloadData];
+        [self.addFeedWindow close];
     }
 }
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Oklasoft. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "TorrentsWindowController.h"
 #import "Torrent.h"
 #import "Stack.h"
@@ -24,15 +25,22 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     self.window = self.downloadsWindow;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(torrentsDidUpdate)
+                                                 name:@"torrentUpdate" object:nil];
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
-    NSMutableArray *torrentArray = [[[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-    NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
-    self.torrentArray = [torrentArray sortedArrayUsingDescriptors:sortDescripters];
+    self.torrentArray = [self fetchTorrents];
+    [self.tableView reloadData];
 }
 
+- (NSArray *)fetchTorrents {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
+    NSError *error;
+    NSMutableArray *torrentArray = [[[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
+    return [torrentArray sortedArrayUsingDescriptors:sortDescripters];
+}
 - (IBAction)downloadTorrent:(id)sender {
     NSInteger row = [self.tableView rowForView:sender];
     Torrent *torrent = self.torrentArray[row];
@@ -41,6 +49,20 @@
     [[NSWorkspace sharedWorkspace] openURL:torrentURL];
 }
 
+-(void)torrentsDidUpdate {
+    self.torrentArray = [self fetchTorrents];
+    [self.tableView reloadData];
+}
+
+#pragma mark IBActions
+- (IBAction)addFeedWasClicked:(id)sender {
+    NSLog(@"Add Clicked");
+}
+
+- (IBAction)refreshWasClicked:(id)sender {
+    AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
+    [appDelegate getNewTorrents];
+}
 
 #pragma mark Tableview Datasource Methods
 
