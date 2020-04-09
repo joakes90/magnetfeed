@@ -83,9 +83,13 @@
 }
 
 
-- (IBAction)removeSelectedFeed:(id)sender {
+- (IBAction)removeSource:(id)sender {
     [[Stack sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:[self.tableView selectedRow]]];
     [[Stack sharedInstance].managedObjectContext save:nil];
+    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
+                                                                 object:nil
+                                                               userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
     [self.tableView reloadData];
 }
 
