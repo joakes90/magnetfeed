@@ -7,16 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "Magnet_Feed-Swift.h"
+#import "Stack.h"
 #import "TorrentsWindowController.h"
 #import "Torrent.h"
-#import "Stack.h"
 
 @interface TorrentsWindowController () <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (strong) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSScrollView *tableViewContainer;
-
+@property (weak) IBOutlet NSToolbarItem *addFeedButton;
+@property (weak) IBOutlet NSToolbarItem *refreshTorrentsButton;
 @property (strong, nonatomic) NSArray *torrentArray;
+
 
 @end
 
@@ -56,7 +59,18 @@
 
 #pragma mark IBActions
 - (IBAction)addFeedWasClicked:(id)sender {
-    NSLog(@"Add Clicked");
+    // Initalize view and popover
+    NSViewController *addSourceViewController = [[AddSourceView alloc] initWithNibName:@"AddSourceView" bundle:nil];
+    NSPopover *addSourcePopover = [[NSPopover alloc] init];
+    
+    // Configure popover
+    [addSourcePopover setContentSize:NSMakeSize(375.0, 175.0)];
+    [addSourcePopover setBehavior:NSPopoverBehaviorTransient];
+    [addSourcePopover setAnimates:YES];
+    [addSourcePopover setContentViewController:addSourceViewController];
+    
+    NSRect buttonRect = [sender convertRect:self.addFeedButton.view.bounds toView:self.contentViewController.view];
+    [addSourcePopover showRelativeToRect:buttonRect ofView:self.window.contentView preferredEdge:NSMinYEdge];
 }
 
 - (IBAction)refreshWasClicked:(id)sender {

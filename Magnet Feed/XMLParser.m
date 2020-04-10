@@ -104,6 +104,11 @@
     if ([elementName isEqualToString:@"channel"]) {
         self.arrayOfNewTorrents = [[NSMutableArray alloc] init];
     }
+    
+    if ([elementName isEqualToString:@"enclosure"]) {
+        self.torrent[@"link"] = attributeDict[@"url"];
+    }
+
     if ([elementName isEqualToString:@"item"]) {
         self.torrent = [[NSMutableDictionary alloc] init];
     }
@@ -112,13 +117,8 @@
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    if ([self.elementBeingParced isEqualToString:@"title"]) {
+    if ([self.elementBeingParced isEqualToString:@"title"] && [string stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet].length != 0) {
         self.torrent[@"title"] = string;
-    }
-    if ([self.elementBeingParced isEqualToString:@"link"] && !self.torrent[@"link"]) {
-        self.torrent[@"link"] = string;
-    } else if ([self.elementBeingParced isEqualToString:@"link"] && self.torrent[@"link"]){
-        self.torrent[@"link"] = [NSString stringWithFormat:@"%@%@", self.torrent[@"link"], string];
     }
     if ([self.elementBeingParced isEqualToString:@"pubDate"]) {
         self.torrent[@"pubDate"] = string;

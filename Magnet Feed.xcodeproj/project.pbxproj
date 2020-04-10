@@ -19,6 +19,8 @@
 		D0780BAB1B353BED0034D275 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0780BAA1B353BED0034D275 /* CoreData.framework */; };
 		D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BB31B354A110034D275 /* SettingsWindowController.m */; };
 		D0780BB61B354A110034D275 /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0780BB41B354A110034D275 /* SettingsWindowController.xib */; };
+		D08072AB2440BA37001A3DAF /* AddSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08072A92440BA37001A3DAF /* AddSourceView.swift */; };
+		D08072AC2440BA37001A3DAF /* AddSourceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08072AA2440BA37001A3DAF /* AddSourceView.xib */; };
 		D0FA2AB01B38867A00B374FA /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2AAF1B38867A00B374FA /* Torrent.m */; };
 		D0FA2AB31B38867B00B374FA /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2AB21B38867B00B374FA /* Source.m */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,9 @@
 		D0780BB21B354A110034D275 /* SettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowController.h; sourceTree = "<group>"; };
 		D0780BB31B354A110034D275 /* SettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
 		D0780BB41B354A110034D275 /* SettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindowController.xib; sourceTree = "<group>"; };
+		D08072A82440BA36001A3DAF /* Magnet Feed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Magnet Feed-Bridging-Header.h"; sourceTree = "<group>"; };
+		D08072A92440BA37001A3DAF /* AddSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSourceView.swift; sourceTree = "<group>"; };
+		D08072AA2440BA37001A3DAF /* AddSourceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSourceView.xib; sourceTree = "<group>"; };
 		D0FA2AAE1B38867A00B374FA /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
 		D0FA2AAF1B38867A00B374FA /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
 		D0FA2AB11B38867B00B374FA /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		D0780B811B35397D0034D275 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D08072A82440BA36001A3DAF /* Magnet Feed-Bridging-Header.h */,
 				D0780B821B35397D0034D275 /* Info.plist */,
 				D0780B861B35397D0034D275 /* main.m */,
 			);
@@ -135,6 +141,8 @@
 				D05B12B71B372802008D62FA /* TorrentsWindowController.h */,
 				D05B12B81B372802008D62FA /* TorrentsWindowController.m */,
 				D05B12B91B372802008D62FA /* TorrentsWindowController.xib */,
+				D08072A92440BA37001A3DAF /* AddSourceView.swift */,
+				D08072AA2440BA37001A3DAF /* AddSourceView.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 					D0780B7D1B35397D0034D275 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = C2NSPAKWYK;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -210,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0780B891B35397D0034D275 /* Images.xcassets in Resources */,
+				D08072AC2440BA37001A3DAF /* AddSourceView.xib in Resources */,
 				D0780BB61B354A110034D275 /* SettingsWindowController.xib in Resources */,
 				D05B12BB1B372802008D62FA /* TorrentsWindowController.xib in Resources */,
 				D0780B8C1B35397D0034D275 /* MainMenu.xib in Resources */,
@@ -230,6 +240,7 @@
 				D0780B851B35397D0034D275 /* AppDelegate.m in Sources */,
 				D0780BA91B353BB40034D275 /* Stack.m in Sources */,
 				D0FA2AB01B38867A00B374FA /* Torrent.m in Sources */,
+				D08072AB2440BA37001A3DAF /* AddSourceView.swift in Sources */,
 				D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */,
 				D0780BA61B353A4D0034D275 /* Model.xcdatamodeld in Sources */,
 			);
@@ -355,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -369,6 +381,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.joakes.magnetfeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Magnet Feed/Magnet Feed-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -376,6 +391,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -390,6 +406,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.joakes.magnetfeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Magnet Feed/Magnet Feed-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

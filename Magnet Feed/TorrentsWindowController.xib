@@ -8,7 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TorrentsWindowController">
             <connections>
+                <outlet property="addFeedButton" destination="9JF-mR-qoH" id="kBw-Ni-XG8"/>
                 <outlet property="downloadsWindow" destination="F0z-JX-Cv5" id="efN-oc-1TY"/>
+                <outlet property="refreshTorrentsButton" destination="2fC-TN-0No" id="SJN-fh-LBe"/>
                 <outlet property="tableView" destination="iHb-UI-2Nu" id="R8w-4x-Eye"/>
                 <outlet property="tableViewContainer" destination="Wxs-iP-XJB" id="uNo-hR-NX2"/>
             </connections>
