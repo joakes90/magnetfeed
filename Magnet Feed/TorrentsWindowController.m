@@ -64,7 +64,7 @@
     NSPopover *addSourcePopover = [[NSPopover alloc] init];
     
     // Configure popover
-    [addSourcePopover setContentSize:NSMakeSize(375.0, 175.0)];
+    [addSourcePopover setContentSize:NSMakeSize(350.0, 115.0)];
     [addSourcePopover setBehavior:NSPopoverBehaviorTransient];
     [addSourcePopover setAnimates:YES];
     [addSourcePopover setContentViewController:addSourceViewController];

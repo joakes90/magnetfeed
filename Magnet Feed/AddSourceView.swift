@@ -10,9 +10,22 @@ import Cocoa
 
 class AddSourceView: NSViewController {
 
+    @IBOutlet weak var textField: NSTextField!
+    @IBOutlet weak var okButton: NSButton!
+    @IBOutlet weak var cancelButton: NSButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
-    
+
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            // Hack around text field vibrancy bug
+            let dark = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark"
+            self.textField.becomeFirstResponder()
+            self.textField.appearance = NSAppearance(named: dark ? .darkAqua : .aqua)
+        }
+    }
 }
