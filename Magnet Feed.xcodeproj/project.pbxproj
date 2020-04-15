@@ -15,7 +15,7 @@
 		D0780B8C1B35397D0034D275 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0780B8A1B35397D0034D275 /* MainMenu.xib */; };
 		D0780BA31B3539B40034D275 /* JTOXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BA21B3539B40034D275 /* JTOXMLParser.m */; };
 		D0780BA61B353A4D0034D275 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0780BA41B353A4D0034D275 /* Model.xcdatamodeld */; };
-		D0780BA91B353BB40034D275 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BA81B353BB40034D275 /* Stack.m */; };
+		D0780BA91B353BB40034D275 /* CoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BA81B353BB40034D275 /* CoreDataService.m */; };
 		D0780BAB1B353BED0034D275 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0780BAA1B353BED0034D275 /* CoreData.framework */; };
 		D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BB31B354A110034D275 /* SettingsWindowController.m */; };
 		D0780BB61B354A110034D275 /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0780BB41B354A110034D275 /* SettingsWindowController.xib */; };
@@ -43,8 +43,8 @@
 		D0780BA11B3539B40034D275 /* JTOXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTOXMLParser.h; sourceTree = "<group>"; };
 		D0780BA21B3539B40034D275 /* JTOXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTOXMLParser.m; sourceTree = "<group>"; };
 		D0780BA51B353A4D0034D275 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D0780BA71B353BB40034D275 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
-		D0780BA81B353BB40034D275 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		D0780BA71B353BB40034D275 /* CoreDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataService.h; sourceTree = "<group>"; };
+		D0780BA81B353BB40034D275 /* CoreDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataService.m; sourceTree = "<group>"; };
 		D0780BAA1B353BED0034D275 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D0780BB21B354A110034D275 /* SettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowController.h; sourceTree = "<group>"; };
 		D0780BB31B354A110034D275 /* SettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
@@ -96,17 +96,12 @@
 				D0D180A524476A7E00D9F535 /* Business Logic */,
 				D0D180A224475BAA00D9F535 /* Extensions */,
 				D0780BB71B355EAA0034D275 /* Model Objects */,
+				D0780B811B35397D0034D275 /* Supporting Files */,
 				D0780BAC1B353FA50034D275 /* ViewControllers */,
 				D0780B831B35397D0034D275 /* AppDelegate.h */,
 				D0780B841B35397D0034D275 /* AppDelegate.m */,
-				D0780BA11B3539B40034D275 /* JTOXMLParser.h */,
-				D0780BA21B3539B40034D275 /* JTOXMLParser.m */,
-				D0780BA41B353A4D0034D275 /* Model.xcdatamodeld */,
-				D0780BA71B353BB40034D275 /* Stack.h */,
-				D0780BA81B353BB40034D275 /* Stack.m */,
 				D0780B881B35397D0034D275 /* Images.xcassets */,
 				D0780B8A1B35397D0034D275 /* MainMenu.xib */,
-				D0780B811B35397D0034D275 /* Supporting Files */,
 			);
 			path = "Magnet Feed";
 			sourceTree = "<group>";
@@ -156,6 +151,7 @@
 		D0780BB71B355EAA0034D275 /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
+				D0780BA41B353A4D0034D275 /* Model.xcdatamodeld */,
 				D0FA2AB11B38867B00B374FA /* Source.h */,
 				D0FA2AB21B38867B00B374FA /* Source.m */,
 				D0FA2AAE1B38867A00B374FA /* Torrent.h */,
@@ -175,6 +171,10 @@
 		D0D180A524476A7E00D9F535 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				D0780BA11B3539B40034D275 /* JTOXMLParser.h */,
+				D0780BA21B3539B40034D275 /* JTOXMLParser.m */,
+				D0780BA71B353BB40034D275 /* CoreDataService.h */,
+				D0780BA81B353BB40034D275 /* CoreDataService.m */,
 				D0D180A624476E1E00D9F535 /* SourceService.swift */,
 			);
 			name = "Business Logic";
@@ -260,7 +260,7 @@
 				D05B12BA1B372802008D62FA /* TorrentsWindowController.m in Sources */,
 				D0FA2AB31B38867B00B374FA /* Source.m in Sources */,
 				D0780B851B35397D0034D275 /* AppDelegate.m in Sources */,
-				D0780BA91B353BB40034D275 /* Stack.m in Sources */,
+				D0780BA91B353BB40034D275 /* CoreDataService.m in Sources */,
 				D0D180A424475BC600D9F535 /* StringExtensions.swift in Sources */,
 				D0FA2AB01B38867A00B374FA /* Torrent.m in Sources */,
 				D0D180A724476E1E00D9F535 /* SourceService.swift in Sources */,

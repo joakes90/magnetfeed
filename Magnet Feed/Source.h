@@ -13,6 +13,7 @@
 
 @interface Source : NSManagedObject
 
++ (NSString *) entityName;
 @property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) NSDate *dateAdded;
 @property (nonatomic, retain) NSSet *torrent;

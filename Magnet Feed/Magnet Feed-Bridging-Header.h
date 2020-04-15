@@ -2,5 +2,7 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
+#import "AppDelegate.h"
 #import "JTOXMLParser.h"
-#import "Stack.h"
+#import "CoreDataService.h"
+#import "Torrent.h"

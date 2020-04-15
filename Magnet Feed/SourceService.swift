@@ -6,53 +6,41 @@
 //  Copyright © 2020 Oklasoft. All rights reserved.
 //
  
-import Foundation
+import Cocoa
 
 class SourceService {
 
-    class func addSource(url: URL) {
-        if JTOXMLParser.validateURLIsFeed(url) {
-            
-        }
-    }
-    
+    static let shared = SourceService()
+
     var sources: [Source] {
         get {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Source")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Source.entityName())
             do {
-                let sources = try Stack.sharedInstance()?.managedObjectContext.fetch(fetchRequest) as? [Source]
+                let sources = try CoreDataService.sharedInstance().managedObjectContext.fetch(fetchRequest) as? [Source]
                 return sources?.sorted(by: { $0.dateAdded < $1.dateAdded }) ?? []
                 
             } catch {
-                // TODO: Handel erro
+                // TODO: Handel error
                 print(error.localizedDescription)
                 return []
             }
         }
     }
-}
 
-//- (IBAction)addSource:(id)sender {
-//    NSString *urlString = self.urlTextField.stringValue;
-//    if ([XMLParser validateURLIsFeed:urlString]) {
-//        BOOL duplicate = NO;
-//        for (Source *source in self.sources) {
-//            if ([source.url isEqualToString:urlString]) {
-//                duplicate = YES;
-//            }
-//        }
-//
-//        if (!duplicate) {
-//            Source *newSource = [NSEntityDescription insertNewObjectForEntityForName:@"Source" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-//            newSource.url = urlString;
-//            [[Stack sharedInstance].managedObjectContext save:nil];
-//            self.sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Source"] error:nil];
-//            AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
-//            [appDelegate getNewTorrents];
-//        } else {
-//            // TODO: Tell the user that feed already exists
-//        }
-//        [self.tableView reloadData];
-//        [self.addFeedWindow close];
-//    }
-//}
+    func addSource(url: URL) {
+        if JTOXMLParser.validateURLIsFeed(url),
+            sources.first(where: { $0.url == url.absoluteString }) == nil {
+            let source = NSEntityDescription.insertNewObject(forEntityName: Source.entityName(), into: CoreDataService.sharedInstance().managedObjectContext) as? Source
+            source?.url = url.absoluteString
+            source?.dateAdded = Date()
+            do {
+                try CoreDataService.sharedInstance().managedObjectContext.save()
+                (NSApplication.shared.delegate as? AppDelegate)?.getNewTorrents()
+            } catch {
+                // TODO: Present error
+                print(error.localizedDescription)
+            }
+        }
+        // TODO: tell user unable to add feed
+    }
+}

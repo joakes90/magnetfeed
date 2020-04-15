@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "SettingsWindowController.h"
 #import "Source.h"
-#import "Stack.h"
+#import "CoreDataService.h"
 #import "JTOXMLParser.h"
 
 @interface SettingsWindowController () <NSTableViewDataSource, NSTableViewDelegate>
@@ -37,7 +37,7 @@
     [self.tableView setDelegate:self];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
-    self.sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    self.sources = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     [self.tableView reloadData];
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
@@ -67,7 +67,7 @@
 //                duplicate = YES;
 //            }
 //        }
-//        
+//
 //        if (!duplicate) {
 //            Source *newSource = [NSEntityDescription insertNewObjectForEntityForName:@"Source" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
 //            newSource.url = urlString;
@@ -85,8 +85,8 @@
 
 
 - (IBAction)removeSource:(id)sender {
-    [[Stack sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:[self.tableView selectedRow]]];
-    [[Stack sharedInstance].managedObjectContext save:nil];
+    [[CoreDataService sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:[self.tableView selectedRow]]];
+    [[CoreDataService sharedInstance].managedObjectContext save:nil];
     NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
                                                                  object:nil
                                                                userInfo:nil];

@@ -7,7 +7,7 @@
 //
 
 #import "JTOXMLParser.h"
-#import "Stack.h"
+#import "CoreDataService.h"
 #import "Torrent.h"
 #import <Cocoa/Cocoa.h>
 
@@ -56,7 +56,7 @@
 
 -(void) removeDuplicatesFromTorrentsArray {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
-    NSArray *existingTorrents = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *existingTorrents = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     NSMutableArray *torrentsToRemove = [[NSMutableArray alloc] init];
     for (NSMutableDictionary *newTorrent in self.arrayOfNewTorrents) {
         NSString *link = newTorrent[@"link"];
@@ -79,7 +79,7 @@
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
             NSDate *date = [dateFormatter dateFromString:torrentDictioanry[@"pubDate"]];
-            Torrent *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Torrent" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+            Torrent *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Torrent" inManagedObjectContext:[CoreDataService sharedInstance].managedObjectContext];
             newManagedObject.name = torrentDictioanry[@"title"];
             newManagedObject.link = torrentDictioanry[@"link"];
             newManagedObject.date = date;
@@ -87,7 +87,7 @@
             [torrentManagedObjects addObject:newManagedObject];
         }
         NSError *error;
-        [[Stack sharedInstance].managedObjectContext save:&error];
+        [[CoreDataService sharedInstance].managedObjectContext save:&error];
         NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
                                                                      object:nil
                                                                    userInfo:nil];

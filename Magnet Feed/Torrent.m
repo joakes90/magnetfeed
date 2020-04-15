@@ -17,4 +17,8 @@
 @dynamic name;
 @dynamic source;
 
++ (NSString *) entityName {
+    return @"Torrent";
+}
+
 @end

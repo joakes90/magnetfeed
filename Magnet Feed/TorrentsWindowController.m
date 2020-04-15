@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Magnet_Feed-Swift.h"
-#import "Stack.h"
+#import "CoreDataService.h"
 #import "TorrentsWindowController.h"
 #import "Torrent.h"
 
@@ -39,7 +39,7 @@
 - (NSArray *)fetchTorrents {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
     NSError *error;
-    NSMutableArray *torrentArray = [[[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    NSMutableArray *torrentArray = [[[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:&error] mutableCopy];
     NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
     return [torrentArray sortedArrayUsingDescriptors:sortDescripters];

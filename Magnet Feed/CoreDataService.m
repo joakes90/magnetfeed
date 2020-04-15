@@ -5,21 +5,21 @@
 //  Copyright (c) 2014 DevMountain. All rights reserved.
 //
 
-#import "Stack.h"
+#import "CoreDataService.h"
 
-@interface Stack ()
+@interface CoreDataService ()
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
-@implementation Stack
+@implementation CoreDataService
 
-+ (Stack *)sharedInstance {
-    static Stack *sharedInstance = nil;
++ (CoreDataService *)sharedInstance {
+    static CoreDataService *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[Stack alloc] init];
+        sharedInstance = [[CoreDataService alloc] init];
     });
     return sharedInstance;
     

@@ -13,6 +13,7 @@
 
 @interface Torrent : NSManagedObject
 
++ (NSString *) entityName;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSString * name;

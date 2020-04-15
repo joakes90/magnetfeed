@@ -12,7 +12,11 @@
 
 @implementation Source
 
+static NSString * entityName;
++ (nonnull NSString *) entityName {
+    return @"Source";
+}
 @dynamic url;
 @dynamic torrent;
-
+@dynamic dateAdded;
 @end

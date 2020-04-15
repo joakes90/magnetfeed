@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "SettingsWindowController.h"
 #import "TorrentsWindowController.h"
-#import "Stack.h"
+#import "CoreDataService.h"
 #import "Source.h"
 #import "JTOXMLParser.h"
 
@@ -56,7 +56,7 @@
 
 -(void)getNewTorrents {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
-    NSArray *sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *sources = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
     for (Source *source in sources) {
         [[JTOXMLParser sharedInstance] parseWithSource:source];
