@@ -11,9 +11,9 @@
 
 @interface JTOXMLParser : NSObject <NSXMLParserDelegate>
 
-+ (instancetype) sharedInstance;
++ (instancetype _Nonnull ) sharedInstance;
 
 + (BOOL) validateURLIsFeed:(nonnull NSURL *)url;
 
--(void)parseWithSource:(Source *)source;
+-(void)parseWithSource:(Source *_Nonnull)source;
 @end
