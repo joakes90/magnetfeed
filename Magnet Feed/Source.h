@@ -13,7 +13,8 @@
 
 @interface Source : NSManagedObject
 
-@property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSString *url;
+@property (nonatomic, retain) NSDate *dateAdded;
 @property (nonatomic, retain) NSSet *torrent;
 @end
 

@@ -15,6 +15,21 @@ class SourceService {
             
         }
     }
+    
+    var sources: [Source] {
+        get {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Source")
+            do {
+                let sources = try Stack.sharedInstance()?.managedObjectContext.fetch(fetchRequest) as? [Source]
+                return sources?.sorted(by: { $0.dateAdded < $1.dateAdded }) ?? []
+                
+            } catch {
+                // TODO: Handel erro
+                print(error.localizedDescription)
+                return []
+            }
+        }
+    }
 }
 
 //- (IBAction)addSource:(id)sender {
