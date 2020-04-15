@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Oklasoft. All rights reserved.
 //
 
-#import "XMLParser.h"
+#import "JTOXMLParser.h"
 #import "Stack.h"
 #import "Torrent.h"
 #import <Cocoa/Cocoa.h>
 
 
-@interface XMLParser () 
+@interface JTOXMLParser () 
 
 @property (strong, nonatomic) NSMutableDictionary *torrent;
 
@@ -24,16 +24,25 @@
 
 @end
 
-@implementation XMLParser
+@implementation JTOXMLParser
+
+# pragma mark class methods
 
 + (instancetype) sharedInstance {
-    static XMLParser *sharedInstance = nil;
+    static JTOXMLParser *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[XMLParser alloc] init];
+        sharedInstance = [[JTOXMLParser alloc] init];
     });
     return sharedInstance;
 }
+
++ (BOOL) validateURLIsFeed:(NSURL *)url; {
+    NSXMLParser *testParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+    return [testParser parse];
+}
+
+#pragma mark instance methods
 
 -(void)parseWithSource:(Source *)source {
     self.sourceBeingParced = source;

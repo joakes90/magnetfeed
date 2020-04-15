@@ -41,7 +41,11 @@ class AddSourceView: NSViewController {
     }
 
     @IBAction func okClicked(_ sender: Any) {
-        print("Ok")
+        guard let url = URL(string: textField.stringValue) else {
+            // TODO: Create alert saying this is not a valid url
+            return
+        }
+        SourceService.addSource(url: url)
     }
 }
 

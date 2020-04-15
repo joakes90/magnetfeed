@@ -11,7 +11,7 @@
 #import "TorrentsWindowController.h"
 #import "Stack.h"
 #import "Source.h"
-#import "XMLParser.h"
+#import "JTOXMLParser.h"
 
 
 @interface AppDelegate ()
@@ -59,7 +59,7 @@
     NSArray *sources = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
     for (Source *source in sources) {
-        [[XMLParser sharedInstance] parseWithSource:source];
+        [[JTOXMLParser sharedInstance] parseWithSource:source];
     }
 }
 

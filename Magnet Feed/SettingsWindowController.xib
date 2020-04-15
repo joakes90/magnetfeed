@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +30,7 @@
                         <rect key="frame" x="20" y="29" width="415" height="122"/>
                         <clipView key="contentView" id="4fH-sU-ru6">
                             <rect key="frame" x="1" y="0.0" width="413" height="121"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="WTx-Ps-ooU" viewBased="YES" id="Bbp-Ae-qub">
                                     <rect key="frame" x="0.0" y="0.0" width="413" height="104"/>
@@ -174,9 +175,6 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="addSource:" target="-2" id="g1b-OK-4x2"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>

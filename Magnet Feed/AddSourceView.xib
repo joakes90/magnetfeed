@@ -30,12 +30,15 @@
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iAz-RA-rXy">
                     <rect key="frame" x="253" y="1" width="82" height="56"/>
-                    <buttonCell key="cell" type="push" title="Ok" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3sM-M2-LAo">
+                    <buttonCell key="cell" type="push" title="Ok" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" inset="2" id="3sM-M2-LAo">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                     </buttonCell>
                     <connections>
-                        <action selector="okClicked:" target="-2" id="TMf-KO-uNe"/>
+                        <action selector="okClicked:" target="-2" id="0KG-Fv-IAd"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6kM-y0-9r6">

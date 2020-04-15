@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Source.h"
 
-@interface XMLParser : NSObject <NSXMLParserDelegate>
+@interface JTOXMLParser : NSObject <NSXMLParserDelegate>
 
 + (instancetype) sharedInstance;
 
--(void)parseWithSource:(Source *)source;
++ (BOOL) validateURLIsFeed:(nonnull NSURL *)url;
 
+-(void)parseWithSource:(Source *)source;
 @end
