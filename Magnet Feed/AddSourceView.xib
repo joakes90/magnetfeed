@@ -8,7 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AddSourceView" customModule="Magnet_Feed" customModuleProvider="target">
             <connections>
-                <outlet property="cancelButton" destination="6kM-y0-9r6" id="cSe-0U-lN1"/>
+                <outlet property="cancelButton" destination="6kM-y0-9r6" id="gM8-4e-Xoi"/>
                 <outlet property="okButton" destination="iAz-RA-rXy" id="sAl-Ul-2Lw"/>
                 <outlet property="textField" destination="AhN-kI-GP4" id="vfg-Ef-414"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -34,6 +34,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="okClicked:" target="-2" id="TMf-KO-uNe"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6kM-y0-9r6">
                     <rect key="frame" x="171" y="13" width="82" height="32"/>
@@ -44,6 +47,9 @@
 Gw
 </string>
                     </buttonCell>
+                    <connections>
+                        <action selector="cancel:" target="-1" id="xQl-vb-ZH9"/>
+                    </connections>
                 </button>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AhN-kI-GP4">
                     <rect key="frame" x="20" y="61" width="309" height="21"/>
@@ -52,6 +58,9 @@ Gw
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="lkO-D9-i4A"/>
+                    </connections>
                 </textField>
             </subviews>
             <constraints>

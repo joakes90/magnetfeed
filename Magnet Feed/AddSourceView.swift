@@ -14,17 +14,13 @@ class AddSourceView: NSViewController {
     @IBOutlet weak var okButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-
-    
     override func viewWillAppear() {
         super.viewWillAppear()
         fixAppearance()
-        if let url = pasteboardURL() {
+        if let url = pasteboardURL(),
+        url.isValidURL {
             textField.stringValue = url
+            okButton.isEnabled = true
         }
     }
 
@@ -38,10 +34,23 @@ class AddSourceView: NSViewController {
     }
     
     fileprivate func pasteboardURL() -> String? {
-        if let string = NSPasteboard.general.string(forType: .string),
-            let _ = URL(string: string) {
+        if let string = NSPasteboard.general.string(forType: .string) {
             return string
         }
         return nil
+    }
+
+    @IBAction func okClicked(_ sender: Any) {
+        print("Ok")
+    }
+}
+
+extension AddSourceView: NSTextFieldDelegate {
+    func controlTextDidChange(_ obj: Notification) {
+        guard let textField = obj.object as? NSTextField else {
+            okButton.isEnabled = false
+            return
+        }
+        okButton.isEnabled = textField.stringValue.isValidURL
     }
 }
