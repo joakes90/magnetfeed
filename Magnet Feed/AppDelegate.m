@@ -34,12 +34,15 @@
     [self getNewTorrents];
     // TODO: create a user manipulable timer
     self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(getNewTorrents) userInfo:nil repeats:YES];
-    self.torrentsWindow = [[TorrentsWindowController alloc] initWithWindowNibName: @"TorrentsWindowController"];
+    [self seeDownloads];
     [self.torrentsWindow showWindow:self];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
+    if (!flag) {
+        [self seeDownloads];
+    }
+    return YES;
 }
 
 - (IBAction)openSettings:(id)sender {
@@ -48,7 +51,7 @@
     
 }
 
-- (IBAction)seeDownloads:(id)sender {
+- (void)seeDownloads {
     self.torrentsWindow = [[TorrentsWindowController alloc] initWithWindowNibName:@"TorrentsWindowController"];
     [self.torrentsWindow showWindow:self];
     [self.torrentsWindow.window orderFront:self];
