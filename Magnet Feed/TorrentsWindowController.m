@@ -20,6 +20,7 @@
 @property (weak) IBOutlet NSToolbarItem *refreshTorrentsButton;
 @property (strong, nonatomic) NSArray *torrentArray;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
+@property (weak) IBOutlet NSTextField *infoLabel;
 
 
 @end
@@ -29,6 +30,17 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     self.window = self.downloadsWindow;
+    // Create that mutable label
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"Add a feed to get started. \nGo to https://showrss.info to learn more."];
+    [attributedString addAttributes:@{NSForegroundColorAttributeName: [NSColor systemBlueColor],
+                                      NSUnderlineStyleAttributeName: @1}
+                              range: NSMakeRange(34, 21)];
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    [attributedString addAttributes:@{NSParagraphStyleAttributeName: paragraphStyle} range: NSMakeRange(0, attributedString.length)];
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    [self.infoLabel setAttributedStringValue:attributedString];
+    [self.infoLabel setAlignment:NSTextAlignmentCenter];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(torrentsDidUpdate)
                                                  name:@"torrentUpdate" object:nil];
@@ -81,6 +93,10 @@
     [self.progressIndicator startAnimation:self];
     AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
     [appDelegate getNewTorrents];
+}
+
+- (IBAction)infoLabelWasClicked:(id)sender {
+    NSLog(@"clicky clicky clicky");
 }
 
 #pragma mark Tableview Datasource Methods

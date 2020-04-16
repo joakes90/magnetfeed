@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="addFeedButton" destination="9JF-mR-qoH" id="kBw-Ni-XG8"/>
                 <outlet property="downloadsWindow" destination="F0z-JX-Cv5" id="efN-oc-1TY"/>
+                <outlet property="infoLabel" destination="5Ne-wl-4Oh" id="9zI-hv-bxZ"/>
                 <outlet property="progressIndicator" destination="dvh-Pj-f4d" id="fBr-xS-TXv"/>
                 <outlet property="refreshTorrentsButton" destination="2fC-TN-0No" id="SJN-fh-LBe"/>
                 <outlet property="tableView" destination="iHb-UI-2Nu" id="R8w-4x-Eye"/>
@@ -28,8 +29,15 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-wl-4Oh">
-                        <rect key="frame" x="271" y="218" width="156" height="16"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" title="Add a feed to get started" id="0hn-3t-uum">
+                        <rect key="frame" x="345" y="218" width="8" height="16"/>
+                        <gestureRecognizers>
+                            <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="SgL-lH-ZCk">
+                                <connections>
+                                    <action selector="infoLabelWasClicked:" target="-2" id="CtP-Ws-r0O"/>
+                                </connections>
+                            </clickGestureRecognizer>
+                        </gestureRecognizers>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="0hn-3t-uum">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
