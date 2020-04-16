@@ -19,6 +19,7 @@
 @property (weak) IBOutlet NSToolbarItem *addFeedButton;
 @property (weak) IBOutlet NSToolbarItem *refreshTorrentsButton;
 @property (strong, nonatomic) NSArray *torrentArray;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 
 
 @end
@@ -54,6 +55,8 @@
 
 -(void)torrentsDidUpdate {
     self.torrentArray = [self fetchTorrents];
+    [self.progressIndicator stopAnimation:self];
+    [self.progressIndicator setHidden:YES];
     [self.tableView reloadData];
 }
 
@@ -74,6 +77,8 @@
 }
 
 - (IBAction)refreshWasClicked:(id)sender {
+    [self.progressIndicator setHidden:NO];
+    [self.progressIndicator startAnimation:self];
     AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
     [appDelegate getNewTorrents];
 }

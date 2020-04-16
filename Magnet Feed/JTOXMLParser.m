@@ -88,10 +88,6 @@
         }
         NSError *error;
         [[CoreDataService sharedInstance].managedObjectContext save:&error];
-        NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
-                                                                     object:nil
-                                                                   userInfo:nil];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
         NSUserNotification *userNotification = [[NSUserNotification alloc] init];
         userNotification.title = @"New Downloads Available";
         userNotification.informativeText = @"New files are ready to be downloaded now";
@@ -105,6 +101,10 @@
             }
         }
     }
+    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
+                                                                 object:nil
+                                                               userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 #pragma mark NSXMLParserDelegate Methods

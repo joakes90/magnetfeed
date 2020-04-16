@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="addFeedButton" destination="9JF-mR-qoH" id="kBw-Ni-XG8"/>
                 <outlet property="downloadsWindow" destination="F0z-JX-Cv5" id="efN-oc-1TY"/>
+                <outlet property="progressIndicator" destination="dvh-Pj-f4d" id="fBr-xS-TXv"/>
                 <outlet property="refreshTorrentsButton" destination="2fC-TN-0No" id="SJN-fh-LBe"/>
                 <outlet property="tableView" destination="iHb-UI-2Nu" id="R8w-4x-Eye"/>
                 <outlet property="tableViewContainer" destination="Wxs-iP-XJB" id="uNo-hR-NX2"/>
@@ -120,6 +121,13 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="483C3EEC-6DDB-4E09-AD68-EF79AC66DD71" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="64i-bP-x5R">
                 <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="B9A63B6C-B178-49DE-BCD4-FEA589F1FB25" label="" paletteLabel="Progress Indicator" tag="-1" sizingBehavior="auto" id="LUR-Ru-Kf5">
+                        <nil key="toolTip"/>
+                        <progressIndicator key="view" hidden="YES" wantsLayer="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" id="dvh-Pj-f4d">
+                            <rect key="frame" x="44" y="14" width="16" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </progressIndicator>
+                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="F7CA855F-C3F1-4E89-ADBD-250A21FEF20B" label="Refresh" paletteLabel="Refresh" image="NSRefreshTemplate" sizingBehavior="auto" id="2fC-TN-0No">
                         <nil key="toolTip"/>
                         <button key="view" verticalHuggingPriority="750" id="CWU-ev-vej">
@@ -153,6 +161,7 @@
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="0ME-td-LZ3"/>
+                    <toolbarItem reference="LUR-Ru-Kf5"/>
                     <toolbarItem reference="2fC-TN-0No"/>
                     <toolbarItem reference="9JF-mR-qoH"/>
                 </defaultToolbarItems>
