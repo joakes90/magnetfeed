@@ -57,7 +57,14 @@
 -(void)getNewTorrents {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
     NSArray *sources = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
+    if (sources.count == 0) {
+        // TODO: Create central place to make this call
+        NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
+                                                                     object:nil
+                                                                   userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        return;
+    }
     for (Source *source in sources) {
         [[JTOXMLParser sharedInstance] parseWithSource:source];
     }
