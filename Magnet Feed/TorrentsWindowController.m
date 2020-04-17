@@ -102,7 +102,8 @@
 }
 
 - (IBAction)infoLabelWasClicked:(id)sender {
-    NSLog(@"clicky clicky clicky");
+    NSURL *showRssUrl = [[NSURL alloc] initWithString:@"https://showrss.info"];
+    [[NSWorkspace sharedWorkspace] openURL:showRssUrl];
 }
 
 #pragma mark Tableview Datasource Methods
