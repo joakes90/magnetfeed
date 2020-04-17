@@ -30,17 +30,7 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     self.window = self.downloadsWindow;
-    // Create that mutable label
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"Add a feed to get started. \nGo to https://showrss.info to learn more."];
-    [attributedString addAttributes:@{NSForegroundColorAttributeName: [NSColor systemBlueColor],
-                                      NSUnderlineStyleAttributeName: @1}
-                              range: NSMakeRange(34, 21)];
-    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
-    [attributedString addAttributes:@{NSParagraphStyleAttributeName: paragraphStyle} range: NSMakeRange(0, attributedString.length)];
-    [paragraphStyle setAlignment:NSTextAlignmentCenter];
-    [self.infoLabel setAttributedStringValue:attributedString];
-    [self.infoLabel setAlignment:NSTextAlignmentCenter];
-
+    [self.infoLabel setAttributedStringValue:[self getAttributedInfoText]];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(torrentsDidUpdate)
                                                  name:@"torrentUpdate" object:nil];
@@ -65,11 +55,27 @@
     [[NSWorkspace sharedWorkspace] openURL:torrentURL];
 }
 
--(void)torrentsDidUpdate {
+- (void)torrentsDidUpdate {
     self.torrentArray = [self fetchTorrents];
     [self.progressIndicator stopAnimation:self];
     [self.progressIndicator setHidden:YES];
     [self.tableView reloadData];
+}
+
+- (NSAttributedString *) getAttributedInfoText {
+    NSString *localizedString = NSLocalizedString(@"Add a feed to get started. \nGo to https://showrss.info to learn more.",
+                                                  @"See showrss.info label text");
+    NSRange linkRange = [localizedString rangeOfString:@"https://showrss.info"];
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    [paragraphStyle setAlignment:NSTextAlignmentCenter];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:localizedString];
+    [attributedString addAttributes:@{NSForegroundColorAttributeName: [NSColor systemBlueColor],
+                                      NSUnderlineStyleAttributeName: @1}
+                              range: linkRange];
+    [attributedString addAttributes:@{NSParagraphStyleAttributeName: paragraphStyle} range: NSMakeRange(0, attributedString.length)];
+    
+    return attributedString;
 }
 
 #pragma mark IBActions
