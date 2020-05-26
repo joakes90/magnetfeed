@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Magnet Feed-Bridging-Header.h"
+#import "Magnet_Feed-Swift.h"
 #import "SettingsWindowController.h"
 #import "TorrentsWindowController.h"
 #import "CoreDataService.h"
@@ -32,10 +32,10 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-//    [self getNewTorrents];
-    
+    [[SourceService shared] getNewTorrentsFrom:nil];
+
     // TODO: create a user manipulable timer
-    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(getNewTorrents) userInfo:nil repeats:YES];
+    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:[SourceService shared] selector:@selector(getNewTorrentsFrom:) userInfo:nil repeats:YES];
     [self seeDownloads];
     [self.torrentsWindow showWindow:self];
 }

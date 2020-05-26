@@ -97,8 +97,7 @@
 - (IBAction)refreshWasClicked:(id)sender {
     [self.progressIndicator setHidden:NO];
     [self.progressIndicator startAnimation:self];
-    AppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
-    [appDelegate getNewTorrents];
+    [[SourceService shared] getNewTorrentsFrom:nil];
 }
 
 - (IBAction)infoLabelWasClicked:(id)sender {

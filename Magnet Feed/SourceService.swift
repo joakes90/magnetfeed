@@ -8,10 +8,12 @@
  
 import Cocoa
 
-class SourceService {
+@objc class SourceService: NSObject {
 
-    static let shared = SourceService()
+    @objc static let shared = SourceService()
 
+    private override init() {}
+    
     var sources: [Source] {
         get {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Source.entityName())
@@ -27,7 +29,7 @@ class SourceService {
         }
     }
 
-    func addSource(url: URL) {
+    @objc func addSource(url: URL) {
         if JTOXMLParser.validateURLIsFeed(url),
             sources.first(where: { $0.url == url.absoluteString }) == nil {
             let source = NSEntityDescription.insertNewObject(forEntityName: Source.entityName(), into: CoreDataService.sharedInstance().managedObjectContext) as? Source
@@ -43,7 +45,7 @@ class SourceService {
         // TODO: tell user unable to add feed
     }
     
-    func getNewTorrents(from sources: [Source]? = nil) {
+    @objc func getNewTorrents(from sources: [Source]? = nil) {
         let sources = sources ?? self.sources
         if sources.isEmpty {
             NotificationCenter.default.post(name: .torrentUpdate, object: nil)
