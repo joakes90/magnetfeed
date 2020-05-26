@@ -51,7 +51,23 @@ class AddSourceView: NSViewController {
             alert.runModal()
             return
         }
-        SourceService.shared.addSource(url: url)
+        SourceService.shared.addSource(url: url) { [weak self] (error, success) in
+            DispatchQueue.main.async {
+                self?.progressIndicator.stopAnimation(self)
+                self?.progressIndicator.isHidden = true
+                if success {
+                    self?.view.window?.close()
+                    return
+                } else {
+                    if let error = error {
+                        let alert = AlertProvider.errorAlert(error: error)
+                        alert.runModal()
+                        return
+                    }
+                }
+                AlertProvider.alert(for: .cannotAddSource).runModal()
+            }
+        }
     }
 }
 

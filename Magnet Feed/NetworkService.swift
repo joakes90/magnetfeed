@@ -8,11 +8,11 @@
 
 import Cocoa
 
-class NetworkService {
+@objc class NetworkService: NSObject {
     
     typealias XMLDataCompletion = (Data?, URLResponse?, Error?) -> Void
     
-    static func getXMLData(source: URL, with completion: @escaping XMLDataCompletion) {
+    @objc static func getXMLData(source: URL, with completion: @escaping XMLDataCompletion) {
         let task = URLSession.shared.dataTask(with: source, completionHandler: completion)
         task.resume()
     }

@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 Oklasoft. All rights reserved.
 //
 
-#import "JTOXMLParser.h"
-#import "CoreDataService.h"
-#import "Torrent.h"
 #import <Cocoa/Cocoa.h>
+#import "CoreDataService.h"
+#import "JTOXMLParser.h"
+#import "Magnet_Feed-Swift.h"
+#import "Torrent.h"
 
 
 @interface JTOXMLParser () 
@@ -37,9 +38,16 @@
     return sharedInstance;
 }
 
-+ (BOOL) validateURLIsFeed:(NSURL *)url; {
-    NSXMLParser *testParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-    return [testParser parse];
++ (void) validateURLIsFeed:(NSURL *)url withCompletion: ( void ( ^ ) ( NSError *error, BOOL success) )completion {
+    [NetworkService getXMLDataWithSource:url with:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error != nil) {
+            completion(error, NO);
+            return;
+        }
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+        BOOL success = [parser parse];
+        completion(parser.parserError, success);
+    }];
 }
 
 #pragma mark instance methods

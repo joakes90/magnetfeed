@@ -29,20 +29,23 @@ import Cocoa
         }
     }
 
-    @objc func addSource(url: URL) {
-        if JTOXMLParser.validateURLIsFeed(url),
-            sources.first(where: { $0.url == url.absoluteString }) == nil {
+    @objc func addSource(url: URL, completion: @escaping (Error?, Bool) -> Void) {
+        JTOXMLParser.validateURLIsFeed(url) { [weak self] (error, success) in
+            if error != nil || (self?.sources.first(where:  { $0.url == url.absoluteString })) != nil {
+                completion(error, false)
+                return
+            }
             let source = NSEntityDescription.insertNewObject(forEntityName: Source.entityName(), into: CoreDataService.sharedInstance().managedObjectContext) as? Source
             source?.url = url.absoluteString
             source?.dateAdded = Date()
             do {
                 try CoreDataService.sharedInstance().managedObjectContext.save()
-                getNewTorrents()
+                self?.getNewTorrents()
+                completion(nil, true)
             } catch {
-                _ = AlertProvider.errorAlert(error: error)
+                completion(error, false)
             }
         }
-        // TODO: tell user unable to add feed
     }
     
     @objc func getNewTorrents(from sources: [Source]? = nil) {
