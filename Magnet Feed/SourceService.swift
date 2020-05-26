@@ -35,12 +35,20 @@ class SourceService {
             source?.dateAdded = Date()
             do {
                 try CoreDataService.sharedInstance().managedObjectContext.save()
-                (NSApplication.shared.delegate as? AppDelegate)?.getNewTorrents()
+                getNewTorrents()
             } catch {
-                // TODO: Present error
-                print(error.localizedDescription)
+                _ = AlertProvider.errorAlert(error: error)
             }
         }
         // TODO: tell user unable to add feed
+    }
+    
+    func getNewTorrents(from sources: [Source]? = nil) {
+        let sources = sources ?? self.sources
+        if sources.isEmpty {
+            NotificationCenter.default.post(name: .torrentUpdate, object: nil)
+            return
+        }
+        sources.forEach({ JTOXMLParser.sharedInstance().parse(with: $0) })
     }
 }

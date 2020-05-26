@@ -10,7 +10,5 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
--(void)getNewTorrents;
-
 @end
 

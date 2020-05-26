@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Magnet Feed-Bridging-Header.h"
 #import "SettingsWindowController.h"
 #import "TorrentsWindowController.h"
 #import "CoreDataService.h"
@@ -31,7 +32,8 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [self getNewTorrents];
+//    [self getNewTorrents];
+    
     // TODO: create a user manipulable timer
     self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:self selector:@selector(getNewTorrents) userInfo:nil repeats:YES];
     [self seeDownloads];
@@ -55,22 +57,6 @@
     self.torrentsWindow = [[TorrentsWindowController alloc] initWithWindowNibName:@"TorrentsWindowController"];
     [self.torrentsWindow showWindow:self];
     [self.torrentsWindow.window orderFront:self];
-}
-
--(void)getNewTorrents {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
-    NSArray *sources = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    if (sources.count == 0) {
-        // TODO: Create central place to make this call
-        NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
-                                                                     object:nil
-                                                                   userInfo:nil];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-        return;
-    }
-    for (Source *source in sources) {
-        [[JTOXMLParser sharedInstance] parseWithSource:source];
-    }
 }
 
 - (IBAction)quit:(id)sender {

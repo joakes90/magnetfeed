@@ -25,4 +25,8 @@ class AlertProvider {
         }
         return alert
     }
+    
+    static func errorAlert(error: Error) -> NSAlert {
+        return NSAlert(error: error)
+    }
 }
