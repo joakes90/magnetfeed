@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="cancelButton" destination="6kM-y0-9r6" id="gM8-4e-Xoi"/>
                 <outlet property="okButton" destination="iAz-RA-rXy" id="sAl-Ul-2Lw"/>
+                <outlet property="progressIndicator" destination="bFA-2g-10V" id="K9e-3I-LL3"/>
                 <outlet property="textField" destination="AhN-kI-GP4" id="vfg-Ef-414"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -65,18 +66,23 @@ Gw
                         <outlet property="delegate" destination="-2" id="lkO-D9-i4A"/>
                     </connections>
                 </textField>
+                <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="bFA-2g-10V">
+                    <rect key="frame" x="153" y="23" width="16" height="16"/>
+                </progressIndicator>
             </subviews>
             <constraints>
                 <constraint firstItem="6kM-y0-9r6" firstAttribute="width" secondItem="iAz-RA-rXy" secondAttribute="width" id="1hT-AQ-gBF"/>
                 <constraint firstAttribute="trailing" secondItem="AhN-kI-GP4" secondAttribute="trailing" constant="20" id="5z5-TM-D5i"/>
                 <constraint firstItem="WNj-i7-p8a" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Oma-Ww-DaC"/>
                 <constraint firstAttribute="bottom" secondItem="iAz-RA-rXy" secondAttribute="bottom" constant="8" id="P1l-Cu-600"/>
+                <constraint firstItem="6kM-y0-9r6" firstAttribute="leading" secondItem="bFA-2g-10V" secondAttribute="trailing" constant="8" id="SUk-V4-Q7P"/>
                 <constraint firstAttribute="bottom" secondItem="6kM-y0-9r6" secondAttribute="bottom" constant="20" id="TDT-4w-Nd5"/>
                 <constraint firstItem="AhN-kI-GP4" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Vh6-AC-5jS"/>
                 <constraint firstItem="AhN-kI-GP4" firstAttribute="top" secondItem="WNj-i7-p8a" secondAttribute="bottom" constant="8" id="co7-nE-gda"/>
                 <constraint firstItem="WNj-i7-p8a" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="dXi-Rb-yzQ"/>
                 <constraint firstItem="iAz-RA-rXy" firstAttribute="centerY" secondItem="6kM-y0-9r6" secondAttribute="centerY" id="jQ3-Gm-7He"/>
                 <constraint firstItem="iAz-RA-rXy" firstAttribute="top" secondItem="AhN-kI-GP4" secondAttribute="bottom" constant="8" id="ueV-WA-w2A"/>
+                <constraint firstItem="bFA-2g-10V" firstAttribute="centerY" secondItem="6kM-y0-9r6" secondAttribute="centerY" id="w16-4n-KLH"/>
                 <constraint firstItem="iAz-RA-rXy" firstAttribute="trailing" secondItem="AhN-kI-GP4" secondAttribute="trailing" id="we3-Zc-uJb"/>
                 <constraint firstItem="iAz-RA-rXy" firstAttribute="leading" secondItem="6kM-y0-9r6" secondAttribute="trailing" constant="12" id="zln-bJ-bas"/>
             </constraints>

@@ -13,7 +13,8 @@ class AddSourceView: NSViewController {
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var okButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
-
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    
     override func viewWillAppear() {
         super.viewWillAppear()
         fixAppearance()
@@ -41,8 +42,13 @@ class AddSourceView: NSViewController {
     }
 
     @IBAction func okClicked(_ sender: Any) {
+        progressIndicator.isHidden = false
+        progressIndicator.startAnimation(self)
         guard let url = URL(string: textField.stringValue) else {
-            // TODO: Create alert saying this is not a valid url
+            progressIndicator.stopAnimation(self)
+            progressIndicator.isHidden = true
+            let alert = AlertProvider.alert(for: .invalidURL)
+            alert.runModal()
             return
         }
         SourceService.shared.addSource(url: url)
