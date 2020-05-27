@@ -9,5 +9,6 @@
 import Foundation
 
 extension NSNotification.Name {
-    static let torrentUpdate = NSNotification.Name("torrentUpdate")
+    static let torrentUpdateStarted = Notification.Name("torrentUpdateStarted")
+    static let torrentUpdateComplete = NSNotification.Name("torrentUpdateComplete")
 }

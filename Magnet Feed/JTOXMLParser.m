@@ -109,7 +109,7 @@
             }
         }
     }
-    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
+    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdateComplete"
                                                                  object:nil
                                                                userInfo:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];

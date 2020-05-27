@@ -33,7 +33,10 @@
     [self.infoLabel setAttributedStringValue:[self getAttributedInfoText]];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(torrentsDidUpdate)
-                                                 name:@"torrentUpdate" object:nil];
+                                                 name:@"torrentUpdateComplete" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(torrentsWillUpdate)
+                                                 name:@"torrentUpdateStarted" object:nil];
     
     self.torrentArray = [self fetchTorrents];
     [self.tableView reloadData];
@@ -56,10 +59,19 @@
 }
 
 - (void)torrentsDidUpdate {
-    self.torrentArray = [self fetchTorrents];
-    [self.progressIndicator stopAnimation:self];
-    [self.progressIndicator setHidden:YES];
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.torrentArray = [self fetchTorrents];
+        [self.progressIndicator stopAnimation:self];
+        [self.progressIndicator setHidden:YES];
+        [self.tableView reloadData];
+    });
+}
+
+- (void)torrentsWillUpdate {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.progressIndicator setHidden:NO];
+        [self.progressIndicator startAnimation:self];
+    });
 }
 
 - (NSAttributedString *) getAttributedInfoText {
@@ -95,8 +107,6 @@
 }
 
 - (IBAction)refreshWasClicked:(id)sender {
-    [self.progressIndicator setHidden:NO];
-    [self.progressIndicator startAnimation:self];
     [[SourceService shared] getNewTorrentsFrom:nil];
 }
 

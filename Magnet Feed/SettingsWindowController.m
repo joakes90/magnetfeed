@@ -61,7 +61,7 @@
 - (IBAction)removeSource:(id)sender {
     [[CoreDataService sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:[self.tableView selectedRow]]];
     [[CoreDataService sharedInstance].managedObjectContext save:nil];
-    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdate"
+    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdateComplete"
                                                                  object:nil
                                                                userInfo:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];

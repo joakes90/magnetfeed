@@ -49,9 +49,10 @@ import Cocoa
     }
     
     @objc func getNewTorrents(from sources: [Source]? = nil) {
+        NotificationCenter.default.post(name: .torrentUpdateStarted, object: nil)
         let sources = sources ?? self.sources
         if sources.isEmpty {
-            NotificationCenter.default.post(name: .torrentUpdate, object: nil)
+            NotificationCenter.default.post(name: .torrentUpdateComplete, object: nil)
             return
         }
         sources.forEach({ JTOXMLParser.sharedInstance().parse(with: $0) })
