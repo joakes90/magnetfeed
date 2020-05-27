@@ -84,10 +84,10 @@
                                                             </connections>
                                                         </button>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGd-Vg-6Db">
-                                                            <rect key="frame" x="57" y="19" width="303" height="31"/>
+                                                            <rect key="frame" x="57" y="10" width="542" height="48"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="gD9-A8-gzE">
-                                                                <font key="font" metaFont="system"/>
+                                                                <font key="font" metaFont="systemSemibold" size="16"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
@@ -177,12 +177,12 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="324" y="255"/>
+            <point key="canvasLocation" x="324" y="254.5"/>
         </window>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
-        <image name="download2x" width="55" height="55"/>
+        <image name="download2x" width="50" height="50"/>
     </resources>
 </document>
