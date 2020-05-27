@@ -79,6 +79,11 @@
                                     <action selector="refreshTorrents:" target="Voe-Tx-rLC" id="0Jw-cl-MF9"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Add Feed" keyEquivalent="n" id="KRu-m8-NQv">
+                                <connections>
+                                    <action selector="addFeed:" target="Voe-Tx-rLC" id="dEf-7a-6ez"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="FQS-3z-kOm"/>
                             <menuItem title="Page Setup…" keyEquivalent="P" id="xxj-hI-yr6">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>

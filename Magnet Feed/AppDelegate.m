@@ -59,6 +59,11 @@
     [self.torrentsWindow.window orderFront:self];
 }
 
+- (IBAction)addFeed:(id)sender {
+    // TODO: hook up this button
+    NSLog(@"Bleep blorp");
+}
+
 - (IBAction)refreshTorrents:(id)sender {
     // TODO: Hook up this button
     NSLog(@"Bleep bloop, looking for torrents");
