@@ -25,7 +25,7 @@
 		D08072AC2440BA37001A3DAF /* AddSourceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08072AA2440BA37001A3DAF /* AddSourceView.xib */; };
 		D09F474E247D7FB3004E84C7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09F474D247D7FB3004E84C7 /* NotificationExtensions.swift */; };
 		D0D180A424475BC600D9F535 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D180A324475BC600D9F535 /* StringExtensions.swift */; };
-		D0D180A724476E1E00D9F535 /* SourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D180A624476E1E00D9F535 /* SourceService.swift */; };
+		D0D180A724476E1E00D9F535 /* TorrentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D180A624476E1E00D9F535 /* TorrentService.swift */; };
 		D0FA2AB01B38867A00B374FA /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2AAF1B38867A00B374FA /* Torrent.m */; };
 		D0FA2AB31B38867B00B374FA /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2AB21B38867B00B374FA /* Source.m */; };
 /* End PBXBuildFile section */
@@ -59,7 +59,7 @@
 		D08072AA2440BA37001A3DAF /* AddSourceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSourceView.xib; sourceTree = "<group>"; };
 		D09F474D247D7FB3004E84C7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		D0D180A324475BC600D9F535 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		D0D180A624476E1E00D9F535 /* SourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceService.swift; sourceTree = "<group>"; };
+		D0D180A624476E1E00D9F535 /* TorrentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentService.swift; sourceTree = "<group>"; };
 		D0FA2AAE1B38867A00B374FA /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
 		D0FA2AAF1B38867A00B374FA /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
 		D0FA2AB11B38867B00B374FA /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 				D0780BA21B3539B40034D275 /* JTOXMLParser.m */,
 				D0780BA71B353BB40034D275 /* CoreDataService.h */,
 				D0780BA81B353BB40034D275 /* CoreDataService.m */,
-				D0D180A624476E1E00D9F535 /* SourceService.swift */,
+				D0D180A624476E1E00D9F535 /* TorrentService.swift */,
 				D040BAAB247D72B9006D3A77 /* AlertProvider.swift */,
 				D040BAAD247D7756006D3A77 /* NetworkService.swift */,
 			);
@@ -274,7 +274,7 @@
 				D0780BA91B353BB40034D275 /* CoreDataService.m in Sources */,
 				D0D180A424475BC600D9F535 /* StringExtensions.swift in Sources */,
 				D0FA2AB01B38867A00B374FA /* Torrent.m in Sources */,
-				D0D180A724476E1E00D9F535 /* SourceService.swift in Sources */,
+				D0D180A724476E1E00D9F535 /* TorrentService.swift in Sources */,
 				D08072AB2440BA37001A3DAF /* AddSourceView.swift in Sources */,
 				D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */,
 				D09F474E247D7FB3004E84C7 /* NotificationExtensions.swift in Sources */,

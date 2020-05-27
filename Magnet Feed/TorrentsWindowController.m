@@ -38,18 +38,10 @@
                                              selector:@selector(torrentsWillUpdate)
                                                  name:@"torrentUpdateStarted" object:nil];
     
-    self.torrentArray = [self fetchTorrents];
+    self.torrentArray = [[TorrentService shared] fetchTorrents];
     [self.tableView reloadData];
 }
 
-- (NSArray *)fetchTorrents {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Torrent"];
-    NSError *error;
-    NSMutableArray *torrentArray = [[[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:&error] mutableCopy];
-    NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-    NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
-    return [torrentArray sortedArrayUsingDescriptors:sortDescripters];
-}
 - (IBAction)downloadTorrent:(id)sender {
     NSInteger row = [self.tableView rowForView:sender];
     Torrent *torrent = self.torrentArray[row];
@@ -60,7 +52,7 @@
 
 - (void)torrentsDidUpdate {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.torrentArray = [self fetchTorrents];
+        self.torrentArray = [[TorrentService shared] fetchTorrents];
         [self.progressIndicator stopAnimation:self];
         [self.progressIndicator setHidden:YES];
         [self.tableView reloadData];
@@ -107,7 +99,7 @@
 }
 
 - (IBAction)refreshWasClicked:(id)sender {
-    [[SourceService shared] getNewTorrentsFrom:nil];
+    [[TorrentService shared] getNewTorrentsFrom:nil];
 }
 
 - (IBAction)infoLabelWasClicked:(id)sender {

@@ -51,7 +51,7 @@ class AddSourceView: NSViewController {
             alert.runModal()
             return
         }
-        SourceService.shared.addSource(url: url) { [weak self] (error, success) in
+        TorrentService.shared.addSource(url: url) { [weak self] (error, success) in
             DispatchQueue.main.async {
                 self?.progressIndicator.stopAnimation(self)
                 self?.progressIndicator.isHidden = true

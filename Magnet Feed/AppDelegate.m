@@ -32,10 +32,10 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [[SourceService shared] getNewTorrentsFrom:nil];
+    [[TorrentService shared] getNewTorrentsFrom:nil];
 
     // TODO: create a user manipulable timer
-    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:[SourceService shared] selector:@selector(getNewTorrentsFrom:) userInfo:nil repeats:YES];
+    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:[TorrentService shared] selector:@selector(getNewTorrentsFrom:) userInfo:nil repeats:YES];
     [self seeDownloads];
     [self.torrentsWindow showWindow:self];
 }

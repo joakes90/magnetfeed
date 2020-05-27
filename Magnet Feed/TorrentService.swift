@@ -8,9 +8,9 @@
  
 import Cocoa
 
-@objc class SourceService: NSObject {
+@objc class TorrentService: NSObject {
 
-    @objc static let shared = SourceService()
+    @objc static let shared = TorrentService()
 
     private override init() {}
     
@@ -56,5 +56,12 @@ import Cocoa
             return
         }
         sources.forEach({ JTOXMLParser.sharedInstance().parse(with: $0) })
+    }
+    
+    @objc func fetchTorrents() -> [Torrent] {
+        let fetchRequest = NSFetchRequest<Torrent>(entityName: "Torrent")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        let torrentArray = try? CoreDataService.sharedInstance().managedObjectContext.fetch(fetchRequest)
+        return torrentArray ?? []
     }
 }
