@@ -59,6 +59,11 @@
     [self.torrentsWindow.window orderFront:self];
 }
 
+- (IBAction)refreshTorrents:(id)sender {
+    // TODO: Hook up this button
+    NSLog(@"Bleep bloop, looking for torrents");
+}
+
 - (IBAction)quit:(id)sender {
     [[NSApplication sharedApplication] terminate:self];
 }
