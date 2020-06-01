@@ -21,7 +21,7 @@
 		D0780BAB1B353BED0034D275 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0780BAA1B353BED0034D275 /* CoreData.framework */; };
 		D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0780BB31B354A110034D275 /* SettingsWindowController.m */; };
 		D0780BB61B354A110034D275 /* SettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0780BB41B354A110034D275 /* SettingsWindowController.xib */; };
-		D08072AB2440BA37001A3DAF /* AddSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08072A92440BA37001A3DAF /* AddSourceView.swift */; };
+		D08072AB2440BA37001A3DAF /* AddSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08072A92440BA37001A3DAF /* AddSourceViewController.swift */; };
 		D08072AC2440BA37001A3DAF /* AddSourceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08072AA2440BA37001A3DAF /* AddSourceView.xib */; };
 		D09F474E247D7FB3004E84C7 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09F474D247D7FB3004E84C7 /* NotificationExtensions.swift */; };
 		D0D180A424475BC600D9F535 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D180A324475BC600D9F535 /* StringExtensions.swift */; };
@@ -55,7 +55,7 @@
 		D0780BB31B354A110034D275 /* SettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
 		D0780BB41B354A110034D275 /* SettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsWindowController.xib; sourceTree = "<group>"; };
 		D08072A82440BA36001A3DAF /* Magnet Feed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Magnet Feed-Bridging-Header.h"; sourceTree = "<group>"; };
-		D08072A92440BA37001A3DAF /* AddSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSourceView.swift; sourceTree = "<group>"; };
+		D08072A92440BA37001A3DAF /* AddSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSourceViewController.swift; sourceTree = "<group>"; };
 		D08072AA2440BA37001A3DAF /* AddSourceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSourceView.xib; sourceTree = "<group>"; };
 		D09F474D247D7FB3004E84C7 /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		D0D180A324475BC600D9F535 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				D05B12B71B372802008D62FA /* TorrentsWindowController.h */,
 				D05B12B81B372802008D62FA /* TorrentsWindowController.m */,
 				D05B12B91B372802008D62FA /* TorrentsWindowController.xib */,
-				D08072A92440BA37001A3DAF /* AddSourceView.swift */,
+				D08072A92440BA37001A3DAF /* AddSourceViewController.swift */,
 				D08072AA2440BA37001A3DAF /* AddSourceView.xib */,
 			);
 			name = ViewControllers;
@@ -196,9 +196,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0780B9B1B35397D0034D275 /* Build configuration list for PBXNativeTarget "Magnet Feed" */;
 			buildPhases = (
-				D0780B7A1B35397D0034D275 /* Sources */,
-				D0780B7B1B35397D0034D275 /* Frameworks */,
 				D0780B7C1B35397D0034D275 /* Resources */,
+				D0780B7B1B35397D0034D275 /* Frameworks */,
+				D0780B7A1B35397D0034D275 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -275,7 +275,7 @@
 				D0D180A424475BC600D9F535 /* StringExtensions.swift in Sources */,
 				D0FA2AB01B38867A00B374FA /* Torrent.m in Sources */,
 				D0D180A724476E1E00D9F535 /* TorrentService.swift in Sources */,
-				D08072AB2440BA37001A3DAF /* AddSourceView.swift in Sources */,
+				D08072AB2440BA37001A3DAF /* AddSourceViewController.swift in Sources */,
 				D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */,
 				D09F474E247D7FB3004E84C7 /* NotificationExtensions.swift in Sources */,
 				D0780BA61B353A4D0034D275 /* Model.xcdatamodeld in Sources */,
@@ -423,9 +423,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.joakes.magnetfeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Magnet Feed/Magnet Feed-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -449,8 +453,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.joakes.magnetfeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Magnet Feed/Magnet Feed-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

@@ -11,7 +11,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (strong, nonatomic) AddSourceView *addSourceView;
+@property (strong, nonatomic) AddSourceViewController *addSourceView;
 
 @end
 

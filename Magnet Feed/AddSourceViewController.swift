@@ -8,13 +8,19 @@
 
 import Cocoa
 
-class AddSourceView: NSViewController {
+@objc class AddSourceViewController: NSViewController {
 
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var okButton: NSButton!
     @IBOutlet weak var cancelButton: NSButton!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = NSLocalizedString("Add Feed", comment: "Add feed view title")
+        view.window?.styleMask.remove(.resizable)
+    }
+
     override func viewWillAppear() {
         super.viewWillAppear()
         fixAppearance()
@@ -71,7 +77,7 @@ class AddSourceView: NSViewController {
     }
 }
 
-extension AddSourceView: NSTextFieldDelegate {
+extension AddSourceViewController: NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         guard let textField = obj.object as? NSTextField else {
             okButton.isEnabled = false

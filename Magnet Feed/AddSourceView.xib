@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="AddSourceView" customModule="Magnet_Feed" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="AddSourceViewController" customModule="Magnet_Feed" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="6kM-y0-9r6" id="gM8-4e-Xoi"/>
                 <outlet property="okButton" destination="iAz-RA-rXy" id="sAl-Ul-2Lw"/>

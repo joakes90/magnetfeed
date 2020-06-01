@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Magnet Feed.xcscheme</key>
+		<key>Magnet Feed.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,11 +12,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D0780B7D1B35397D0034D275</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D0780B901B35397D0034D275</key>
 		<dict>
 			<key>primary</key>

@@ -85,7 +85,7 @@
 #pragma mark IBActions
 - (IBAction)addFeedWasClicked:(id)sender {
     // Initalize view and popover
-    NSViewController *addSourceViewController = [[AddSourceView alloc] initWithNibName:@"AddSourceView" bundle:nil];
+    NSViewController *addSourceViewController = [[AddSourceViewController alloc] initWithNibName:@"AddSourceView" bundle:nil];
     NSPopover *addSourcePopover = [[NSPopover alloc] init];
     
     // Configure popover
