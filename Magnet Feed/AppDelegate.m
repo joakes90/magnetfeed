@@ -60,8 +60,10 @@
 }
 
 - (IBAction)addFeed:(id)sender {
-    // TODO: hook up this button
-    NSLog(@"Bleep blorp");
+    if (self.addSourceView == nil) {
+        self.addSourceView = [[AddSourceView alloc] initWithNibName:@"AddSourceView" bundle:nil];
+    }
+    [self.addSourceView presentViewControllerAsModalWindow:self.addSourceView];
 }
 
 - (IBAction)refreshTorrents:(id)sender {
