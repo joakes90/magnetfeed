@@ -7,11 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Magnet_Feed-Swift.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (strong, nonatomic) AddSourceViewController *addSourceView;
+@property (strong, nonatomic) NSViewController *addSourceView;
 
 @end
 

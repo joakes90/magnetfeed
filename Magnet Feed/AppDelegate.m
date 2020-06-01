@@ -11,7 +11,7 @@
 #import "TorrentsWindowController.h"
 #import "CoreDataService.h"
 #import "Source.h"
-
+#import "Magnet_Feed-Swift.h"
 #import "JTOXMLParser.h"
 
 
@@ -60,10 +60,10 @@
 }
 
 - (IBAction)addFeed:(id)sender {
-//    if (self.addSourceView == nil) {
-//        self.addSourceView = [[AddSourceViewController alloc] initWithNibName:@"AddSourceView" bundle:nil];
-//    }
-//    [self.addSourceView presentViewControllerAsModalWindow:self.addSourceView];
+    if (self.addSourceView == nil) {
+        self.addSourceView = [[AddSourceViewController alloc] initWithNibName:@"AddSourceView" bundle:nil];
+    }
+    [self.addSourceView presentViewControllerAsModalWindow:self.addSourceView];
 }
 
 - (IBAction)refreshTorrents:(id)sender {

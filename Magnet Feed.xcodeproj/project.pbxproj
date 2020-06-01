@@ -415,7 +415,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Magnet Feed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PODS_BUILD_DIR = "";
 				PODS_CONFIGURATION_BUILD_DIR = "";
 				PODS_PODFILE_DIR_PATH = "";
@@ -445,7 +445,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Magnet Feed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PODS_BUILD_DIR = "";
 				PODS_CONFIGURATION_BUILD_DIR = "";
 				PODS_PODFILE_DIR_PATH = "";
