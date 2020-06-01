@@ -22,8 +22,8 @@ import Cocoa
                 return sources?.sorted(by: { $0.dateAdded < $1.dateAdded }) ?? []
                 
             } catch {
-                // TODO: Handel error
-                print(error.localizedDescription)
+                let errorAlert = AlertProvider.errorAlert(error: error)
+                errorAlert.runModal()
                 return []
             }
         }
