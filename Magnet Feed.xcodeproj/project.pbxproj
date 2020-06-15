@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D03339762497DF28001DE3A2 /* GetTorrentsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */; };
+		D03339782497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03339772497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift */; };
 		D040BAAC247D72B9006D3A77 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D040BAAB247D72B9006D3A77 /* AlertProvider.swift */; };
 		D040BAAE247D7756006D3A77 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D040BAAD247D7756006D3A77 /* NetworkService.swift */; };
 		D05B12BA1B372802008D62FA /* TorrentsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05B12B81B372802008D62FA /* TorrentsWindowController.m */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTorrentsOperation.swift; sourceTree = "<group>"; };
+		D03339772497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewTorrentsFinishedOperation.swift; sourceTree = "<group>"; };
 		D040BAAB247D72B9006D3A77 /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		D040BAAD247D7756006D3A77 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D05B12B71B372802008D62FA /* TorrentsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentsWindowController.h; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				D040BAAB247D72B9006D3A77 /* AlertProvider.swift */,
 				D040BAAD247D7756006D3A77 /* NetworkService.swift */,
 				D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */,
+				D03339772497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift */,
 			);
 			name = "Business Logic";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				D0D180A724476E1E00D9F535 /* TorrentService.swift in Sources */,
 				D08072AB2440BA37001A3DAF /* AddSourceViewController.swift in Sources */,
 				D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */,
+				D03339782497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift in Sources */,
 				D09F474E247D7FB3004E84C7 /* NotificationExtensions.swift in Sources */,
 				D0780BA61B353A4D0034D275 /* Model.xcdatamodeld in Sources */,
 			);

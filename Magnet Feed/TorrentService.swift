@@ -55,21 +55,23 @@ import Cocoa
             NotificationCenter.default.post(name: .torrentUpdateComplete, object: nil)
             return
         }
+        let finishOperation = GetNewTorrentsFinishedOperation()
         // TODO: This should be handleded asyncronously
         sources.forEach({
             // 1. Create operation that parses individual  sources
             let getNewTorrentsOperation = GetTorrentsOperation(source: $0)
-            
+            finishOperation.addDependency(getNewTorrentsOperation)
             // 2. Add operation to queue
             OperationQueue.main.addOperation(getNewTorrentsOperation)
-            
-            // 3. When queue is complete fire torrent update complete notification
         })
+        // 3. When queue is complete fire torrent update complete notification
+        OperationQueue.main.addOperation(finishOperation)
     }
     
-    @objc func fetchTorrents() -> [Torrent] {
+    @objc func fetchTorrents(predicate: NSPredicate? = nil) -> [Torrent] {
         let fetchRequest = NSFetchRequest<Torrent>(entityName: "Torrent")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        fetchRequest.predicate = predicate
         let torrentArray = try? CoreDataService.sharedInstance().managedObjectContext.fetch(fetchRequest)
         return torrentArray ?? []
     }

@@ -16,6 +16,7 @@
 @dynamic link;
 @dynamic name;
 @dynamic source;
+@dynamic reported;
 
 + (NSString *) entityName {
     return @"Torrent";

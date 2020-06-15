@@ -38,7 +38,7 @@
                                              selector:@selector(torrentsWillUpdate)
                                                  name:@"torrentUpdateStarted" object:nil];
     
-    self.torrentArray = [[TorrentService shared] fetchTorrents];
+    self.torrentArray = [[TorrentService shared] fetchTorrentsWithPredicate:nil];
     [self.tableView reloadData];
 }
 
@@ -52,7 +52,7 @@
 
 - (void)torrentsDidUpdate {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.torrentArray = [[TorrentService shared] fetchTorrents];
+        self.torrentArray = [[TorrentService shared] fetchTorrentsWithPredicate:nil];
         [self.progressIndicator stopAnimation:self];
         [self.progressIndicator setHidden:YES];
         [self.tableView reloadData];

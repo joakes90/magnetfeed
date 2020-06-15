@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Source *source;
+@property (nonatomic) BOOL reported;
 
 @end
