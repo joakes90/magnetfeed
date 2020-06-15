@@ -55,7 +55,16 @@ import Cocoa
             NotificationCenter.default.post(name: .torrentUpdateComplete, object: nil)
             return
         }
-        sources.forEach({ JTOXMLParser.sharedInstance().parse(with: $0) })
+        // TODO: This should be handleded asyncronously
+        sources.forEach({
+            // 1. Create operation that parses individual  sources
+            let getNewTorrentsOperation = GetTorrentsOperation(source: $0)
+            
+            // 2. Add operation to queue
+            OperationQueue.main.addOperation(getNewTorrentsOperation)
+            
+            // 3. When queue is complete fire torrent update complete notification
+        })
     }
     
     @objc func fetchTorrents() -> [Torrent] {

@@ -96,23 +96,7 @@
         }
         NSError *error;
         [[CoreDataService sharedInstance].managedObjectContext save:&error];
-        NSUserNotification *userNotification = [[NSUserNotification alloc] init];
-        userNotification.title = @"New Downloads Available";
-        userNotification.informativeText = @"New files are ready to be downloaded now";
-        userNotification.soundName = NSUserNotificationDefaultSoundName;
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:userNotification];
-        
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
-            for (NSMutableDictionary *torrentDictionary in self.arrayOfNewTorrents) {
-                NSURL *downloadURL = [NSURL URLWithString:torrentDictionary[@"link"]];
-                [[NSWorkspace sharedWorkspace] openURL:downloadURL];
-            }
-        }
     }
-    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdateComplete"
-                                                                 object:nil
-                                                               userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 #pragma mark NSXMLParserDelegate Methods

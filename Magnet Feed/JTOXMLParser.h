@@ -13,7 +13,7 @@
 
 + (instancetype _Nonnull ) sharedInstance;
 
-+ (void) validateURLIsFeed:(NSURL *)url withCompletion: ( void ( ^_Nonnull ) ( NSError *error, BOOL success) )completion;
++ (void) validateURLIsFeed:(NSURL *_Nullable)url withCompletion: ( void ( ^_Nonnull ) ( NSError * _Nullable error, BOOL success) )completion;
 
--(void)parseWithSource:(Source *_Nonnull)source;
+- (void)parseWithSource:(Source *_Nonnull)source;
 @end

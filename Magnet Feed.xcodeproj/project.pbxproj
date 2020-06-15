@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D03339762497DF28001DE3A2 /* GetTorrentsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */; };
 		D040BAAC247D72B9006D3A77 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D040BAAB247D72B9006D3A77 /* AlertProvider.swift */; };
 		D040BAAE247D7756006D3A77 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D040BAAD247D7756006D3A77 /* NetworkService.swift */; };
 		D05B12BA1B372802008D62FA /* TorrentsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05B12B81B372802008D62FA /* TorrentsWindowController.m */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTorrentsOperation.swift; sourceTree = "<group>"; };
 		D040BAAB247D72B9006D3A77 /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		D040BAAD247D7756006D3A77 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D05B12B71B372802008D62FA /* TorrentsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentsWindowController.h; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				D0D180A624476E1E00D9F535 /* TorrentService.swift */,
 				D040BAAB247D72B9006D3A77 /* AlertProvider.swift */,
 				D040BAAD247D7756006D3A77 /* NetworkService.swift */,
+				D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */,
 			);
 			name = "Business Logic";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				D0FA2AB31B38867B00B374FA /* Source.m in Sources */,
 				D0780B851B35397D0034D275 /* AppDelegate.m in Sources */,
 				D040BAAE247D7756006D3A77 /* NetworkService.swift in Sources */,
+				D03339762497DF28001DE3A2 /* GetTorrentsOperation.swift in Sources */,
 				D0780BA91B353BB40034D275 /* CoreDataService.m in Sources */,
 				D0D180A424475BC600D9F535 /* StringExtensions.swift in Sources */,
 				D0FA2AB01B38867A00B374FA /* Torrent.m in Sources */,
