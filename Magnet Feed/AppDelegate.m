@@ -48,8 +48,11 @@
 }
 
 - (IBAction)openSettings:(id)sender {
-   self.settingsWindow  = [[SettingsWindowController alloc] initWithWindowNibName:@"SettingsWindowController"];
-    [self.settingsWindow showWindow:self];
+    if (!self.settingsWindow.settingsWindow) {
+        self.settingsWindow  = [[SettingsWindowController alloc] initWithWindowNibName:@"SettingsWindowController"];
+        [self.settingsWindow showWindow:self];
+    }
+    [self.settingsWindow.settingsWindow makeKeyAndOrderFront:self];
 }
 
 - (void)seeDownloads {

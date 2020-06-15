@@ -10,4 +10,6 @@
 
 @interface SettingsWindowController : NSWindowController
 
+@property (strong) IBOutlet NSWindow *settingsWindow;
+
 @end

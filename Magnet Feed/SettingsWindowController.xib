@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController">
             <connections>
                 <outlet property="SettingsWindow" destination="5xF-7L-LSG" id="jyu-ws-mC6"/>
+                <outlet property="settingsWindow" destination="5xF-7L-LSG" id="DLr-kd-85c"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
