@@ -17,7 +17,7 @@
 
 @property (strong) IBOutlet NSTableView *tableView;
 
-@property (strong) IBOutlet NSPanel *SettingsWindow;
+@property (strong) IBOutlet NSWindow *SettingsWindow;
 
 @property (strong) IBOutlet NSTextField *urlTextField;
 

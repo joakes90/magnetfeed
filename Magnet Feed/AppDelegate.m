@@ -50,7 +50,6 @@
 - (IBAction)openSettings:(id)sender {
    self.settingsWindow  = [[SettingsWindowController alloc] initWithWindowNibName:@"SettingsWindowController"];
     [self.settingsWindow showWindow:self];
-    
 }
 
 - (void)seeDownloads {
