@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17132" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17132"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,7 +21,7 @@
             <rect key="contentRect" x="1170" y="808" width="814" height="420"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="450" height="270"/>
-            <value key="maxSize" type="size" width="700" height="400"/>
+            <value key="maxSize" type="size" width="815" height="420"/>
             <view key="contentView" id="r9X-uY-0y3">
                 <rect key="frame" x="0.0" y="0.0" width="814" height="420"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -40,10 +41,13 @@
                                     </textFieldCell>
                                 </textField>
                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZLF-ig-d3y">
-                                    <rect key="frame" x="651" y="322" width="106" height="25"/>
+                                    <rect key="frame" x="627" y="322" width="130" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="125" id="8UW-nv-IOH"/>
+                                    </constraints>
                                     <popUpButtonCell key="cell" type="push" title="5 Minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="zhh-rj-vEF" id="qov-sS-dGu">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
+                                        <font key="font" metaFont="menu"/>
                                         <menu key="menu" id="ce9-jv-o0O">
                                             <items>
                                                 <menuItem title="5 Minutes" state="on" id="zhh-rj-vEF"/>
@@ -55,14 +59,14 @@
                                     </popUpButtonCell>
                                 </popUpButton>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zyG-3z-lBl">
-                                    <rect key="frame" x="652" y="300" width="40" height="18"/>
+                                    <rect key="frame" x="628" y="300" width="40" height="18"/>
                                     <buttonCell key="cell" type="radio" title="On" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="7GU-1b-aLm">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-p5-Uhn">
-                                    <rect key="frame" x="697" y="300" width="42" height="18"/>
+                                    <rect key="frame" x="673" y="300" width="42" height="18"/>
                                     <buttonCell key="cell" type="radio" title="Off" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="38W-p0-ZFp">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
