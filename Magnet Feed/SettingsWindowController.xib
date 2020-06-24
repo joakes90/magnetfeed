@@ -23,7 +23,7 @@
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="450" height="270"/>
             <value key="maxSize" type="size" width="815" height="420"/>
-            <view key="contentView" misplaced="YES" id="r9X-uY-0y3">
+            <view key="contentView" id="r9X-uY-0y3">
                 <rect key="frame" x="0.0" y="0.0" width="851" height="499"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -135,6 +135,10 @@
                                                         </prototypeCellViews>
                                                     </tableColumn>
                                                 </tableColumns>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="-2" id="nhD-BQ-bJG"/>
+                                                    <outlet property="delegate" destination="-2" id="cQf-8e-SPV"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                     </clipView>

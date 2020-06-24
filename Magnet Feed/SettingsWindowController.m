@@ -35,14 +35,14 @@
     [self.tableView setDelegate:self];
     
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
-    self.sources = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//    self.sources = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
     [self.tableView reloadData];
     
 //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
 //        [self.autoDownloadMatrix selectCellAtRow:0 column:0];
 //    } else {
 //        [self.autoDownloadMatrix selectCellAtRow:0 column:1];
-//        
+//
 //    }
 }
 
@@ -77,6 +77,6 @@
 //    }else{
 //        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"autoDownload"];
 //    }
-}
+//}
 
 @end
