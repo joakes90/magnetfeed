@@ -24,7 +24,7 @@
             <value key="minSize" type="size" width="450" height="270"/>
             <value key="maxSize" type="size" width="815" height="420"/>
             <view key="contentView" misplaced="YES" id="r9X-uY-0y3">
-                <rect key="frame" x="0.0" y="0.0" width="851" height="507"/>
+                <rect key="frame" x="0.0" y="0.0" width="851" height="499"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box title="General" translatesAutoresizingMaskIntoConstraints="NO" id="eNg-46-aIv">
