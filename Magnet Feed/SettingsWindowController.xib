@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="SettingsWindow" destination="5xF-7L-LSG" id="jyu-ws-mC6"/>
                 <outlet property="settingsWindow" destination="5xF-7L-LSG" id="DLr-kd-85c"/>
+                <outlet property="tableView" destination="fpY-GX-ok6" id="657-xD-SvS"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -95,7 +96,7 @@
                                         <rect key="frame" x="1" y="1" width="769" height="306"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="fullWidth" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="fpY-GX-ok6">
+                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="fullWidth" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="fpY-GX-ok6">
                                                 <rect key="frame" x="0.0" y="0.0" width="769" height="306"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -113,26 +114,6 @@
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                        <prototypeCellViews>
-                                                            <tableCellView id="8Vv-Jb-Waf">
-                                                                <rect key="frame" x="1" y="1" width="766" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                <subviews>
-                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VEM-Ne-tGR">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="766" height="17"/>
-                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="N4G-si-SXB">
-                                                                            <font key="font" metaFont="system"/>
-                                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                        </textFieldCell>
-                                                                    </textField>
-                                                                </subviews>
-                                                                <connections>
-                                                                    <outlet property="textField" destination="VEM-Ne-tGR" id="y2y-Xv-2a0"/>
-                                                                </connections>
-                                                            </tableCellView>
-                                                        </prototypeCellViews>
                                                     </tableColumn>
                                                 </tableColumns>
                                                 <connections>
@@ -242,15 +223,6 @@
             </view>
             <point key="canvasLocation" x="-300.5" y="375.5"/>
         </window>
-        <button verticalHuggingPriority="750" id="Awn-hC-K6z">
-            <rect key="frame" x="0.0" y="0.0" width="82" height="19"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <buttonCell key="cell" type="roundRect" title="Round Rect" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cVA-TI-Udh">
-                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                <font key="font" metaFont="cellTitle"/>
-            </buttonCell>
-            <point key="canvasLocation" x="-650" y="764"/>
-        </button>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>

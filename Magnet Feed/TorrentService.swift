@@ -14,7 +14,7 @@ import Cocoa
 
     private override init() {}
     
-    var sources: [Source] {
+    @objc var sources: [Source] {
         get {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Source.entityName())
             do {

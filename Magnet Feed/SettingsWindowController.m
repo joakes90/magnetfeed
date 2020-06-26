@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Magnet_Feed-Swift.h"
 #import "SettingsWindowController.h"
 #import "Source.h"
 #import "CoreDataService.h"
@@ -14,8 +15,7 @@
 
 @interface SettingsWindowController () <NSTableViewDataSource, NSTableViewDelegate>
 
-
-@property (strong) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSTableView *tableView;
 
 @property (strong) IBOutlet NSTextField *urlTextField;
 
@@ -33,9 +33,7 @@
     [super windowDidLoad];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
-    
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Source"];
-//    self.sources = [[CoreDataService sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    self.sources = [TorrentService shared].sources;
     [self.tableView reloadData];
     
 //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
@@ -47,14 +45,14 @@
 }
 
 
-//-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-//    return self.sources.count;
-//}
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+    return self.sources.count;
+}
 
-//-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-//    Source *source = self.sources[row];
-//    return source.url;
-//}
+-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+    Source *source = self.sources[row];
+    return source.url;
+}
 
 - (IBAction)removeSource:(id)sender {
     [[CoreDataService sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:[self.tableView selectedRow]]];
