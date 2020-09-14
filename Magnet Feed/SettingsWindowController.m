@@ -83,11 +83,6 @@
     [_appDelegate.addSourceWindow.window makeKeyAndOrderFront:_appDelegate.addSourceWindow.window];
 }
 
-//- (BOOL)verifyURLisFeed:(NSURL *)url {
-//    NSXMLParser *testParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-//    return [testParser parse];
-//}
-
 //- (IBAction)matrixChangedStates:(id)sender {
 //    if (self.autoDownloadMatrix.selectedColumn == 0) {
 //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"autoDownload"];
