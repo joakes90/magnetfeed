@@ -75,6 +75,10 @@ import Cocoa
             }
         }
     }
+
+    @IBAction func cancelClicked(_ sender: Any) {
+        view.window?.close()
+    }
 }
 
 extension AddSourceViewController: NSTextFieldDelegate {

@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "Magnet_Feed-Swift.h"
 #import "SettingsWindowController.h"
 #import "TorrentsWindowController.h"
 #import "CoreDataService.h"
 #import "Source.h"
-#import "Magnet_Feed-Swift.h"
 #import "JTOXMLParser.h"
 
 

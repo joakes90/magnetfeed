@@ -19,6 +19,8 @@
 
 @property (strong) IBOutlet NSTextField *urlTextField;
 
+@property (weak) AppDelegate *appDelegate;
+
 @property NSArray *sources;
 
 @property (strong) IBOutlet NSPanel *addFeedWindow;
@@ -31,6 +33,7 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
+    self.appDelegate = [NSApplication sharedApplication].delegate;
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     self.sources = [TorrentService shared].sources;
@@ -67,6 +70,17 @@
         [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:newSelection] byExtendingSelection:NO];
         [self.tableView reloadData];
     }
+}
+
+- (IBAction)addSource:(id)sender {
+    if (!_appDelegate.addSourceView) {
+        _appDelegate.addSourceView = [[AddSourceViewController alloc] initWithNibName:@"AddSourceView" bundle:nil];
+        NSWindow *addSourceWindow = [NSWindow windowWithContentViewController:_appDelegate.addSourceView];
+        NSWindowController *addSourceWindowController = [[NSWindowController alloc] initWithWindow:addSourceWindow];
+        _appDelegate.addSourceWindow = addSourceWindowController;
+    }
+    [_appDelegate.addSourceWindow showWindow:_appDelegate.addSourceWindow.window];
+    [_appDelegate.addSourceWindow.window makeKeyAndOrderFront:_appDelegate.addSourceWindow.window];
 }
 
 //- (BOOL)verifyURLisFeed:(NSURL *)url {

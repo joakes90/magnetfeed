@@ -150,6 +150,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="addSource:" target="-2" id="Ih7-yF-nkh"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ID7-OU-fpW">
                                                         <rect key="frame" x="40" y="-1" width="40" height="25"/>

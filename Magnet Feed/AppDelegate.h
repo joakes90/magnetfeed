@@ -12,5 +12,7 @@
 
 @property (strong, nonatomic) NSViewController *addSourceView;
 
+@property (strong, nonatomic) NSWindowController *addSourceWindow;
+
 @end
 
