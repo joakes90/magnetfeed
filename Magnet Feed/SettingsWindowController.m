@@ -55,13 +55,18 @@
 }
 
 - (IBAction)removeSource:(id)sender {
-    [[CoreDataService sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:[self.tableView selectedRow]]];
-    [[CoreDataService sharedInstance].managedObjectContext save:nil];
-    NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdateComplete"
-                                                                 object:nil
-                                                               userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
-    [self.tableView reloadData];
+    NSInteger selectedRow = [self.tableView selectedRow];
+    if (selectedRow >= 0) {
+        [[CoreDataService sharedInstance].managedObjectContext deleteObject:[self.sources objectAtIndex:selectedRow]];
+        [[CoreDataService sharedInstance].managedObjectContext save:nil];
+        NSNotification *notification = [[NSNotification alloc] initWithName:@"torrentUpdateComplete"
+                                                                     object:nil
+                                                                   userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        NSUInteger newSelection = selectedRow - 1;
+        [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:newSelection] byExtendingSelection:NO];
+        [self.tableView reloadData];
+    }
 }
 
 //- (BOOL)verifyURLisFeed:(NSURL *)url {
