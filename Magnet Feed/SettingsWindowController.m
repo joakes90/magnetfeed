@@ -36,9 +36,11 @@
     self.appDelegate = [NSApplication sharedApplication].delegate;
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
-    self.sources = [TorrentService shared].sources;
-    [self.tableView reloadData];
-    
+    [self sourceListDidUpdate];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector: @selector(sourceListDidUpdate)
+                                                 name:@"sourceListUpdated"
+                                               object:nil];
 //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
 //        [self.autoDownloadMatrix selectCellAtRow:0 column:0];
 //    } else {
@@ -46,7 +48,6 @@
 //
 //    }
 }
-
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     return self.sources.count;
@@ -81,6 +82,11 @@
     }
     [_appDelegate.addSourceWindow showWindow:_appDelegate.addSourceWindow.window];
     [_appDelegate.addSourceWindow.window makeKeyAndOrderFront:_appDelegate.addSourceWindow.window];
+}
+
+- (void)sourceListDidUpdate {
+    self.sources = [TorrentService shared].sources;
+    [self.tableView reloadData];
 }
 
 //- (IBAction)matrixChangedStates:(id)sender {

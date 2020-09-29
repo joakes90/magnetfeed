@@ -63,6 +63,7 @@ import Cocoa
                 self?.progressIndicator.isHidden = true
                 if success {
                     self?.view.window?.close()
+                    NotificationCenter.default.post(name: .sourceListUpdated, object: nil)
                     return
                 } else {
                     if let error = error {
