@@ -87,7 +87,28 @@
 }
 
 - (IBAction)refreshPopupChanged:(id)sender {
-    NSLog(@"%ld", self.refreshPopup.indexOfSelectedItem);
+    RefreshInterval interval = self.refreshPopup.indexOfSelectedItem;
+    NSInteger timeInterval;
+    switch (interval) {
+        case k5min:
+            NSLog(@"5 minutes");
+            timeInterval = 5;
+            break;
+        case k30min:
+            NSLog(@"30 minutes");
+            timeInterval = 30;
+            break;
+        case k60min:
+            NSLog(@"1 hour");
+            timeInterval = 60;
+            break;
+        case kNA:
+            NSLog(@"manual");
+            timeInterval = -1;
+            break;
+        default:
+            return;
+    }
 }
 
 - (void)sourceListDidUpdate {

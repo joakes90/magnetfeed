@@ -12,4 +12,11 @@
 
 @property (strong) IBOutlet NSWindow *settingsWindow;
 
+typedef enum RefreshInterval: NSUInteger {
+    k5min,
+    k30min,
+    k60min,
+    kNA
+} RefreshInterval;
+
 @end
