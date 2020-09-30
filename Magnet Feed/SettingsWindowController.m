@@ -89,22 +89,24 @@
 - (IBAction)refreshPopupChanged:(id)sender {
     AppDelegate *appDelegate = [NSApplication sharedApplication].delegate;
     RefreshInterval interval = self.refreshPopup.indexOfSelectedItem;
+    NSInteger timeInterval;
     switch (interval) {
         case k5min:
-            [appDelegate configureTimerWithInterval: (5 * 60)];
+            timeInterval = 5 * 60;
             break;
         case k30min:
-            [appDelegate configureTimerWithInterval: (30 * 60)];
+            timeInterval = 30 * 60;
             break;
         case k60min:
-            [appDelegate configureTimerWithInterval: (60 * 60)];
+            timeInterval = 60 * 60;
             break;
         case kNA:
-            [appDelegate configureTimerWithInterval:-1];
+            timeInterval = -1;
             break;
         default:
             return;
     }
+    [appDelegate configureTimerWithInterval:timeInterval];
 }
 
 - (void)sourceListDidUpdate {
