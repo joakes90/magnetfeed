@@ -16,4 +16,5 @@
 + (void) validateURLIsFeed:(NSURL *_Nullable)url withCompletion: ( void ( ^_Nonnull ) ( NSError * _Nullable error, BOOL success) )completion;
 
 - (void)parseWithSource:(Source *_Nonnull)source;
+
 @end

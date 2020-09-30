@@ -75,4 +75,9 @@
 - (IBAction)quit:(id)sender {
     [[NSApplication sharedApplication] terminate:self];
 }
+
+- (void) configureTimerWithInterval:(NSInteger)interval {
+    NSLog(@"%ld", interval);
+}
+
 @end

@@ -14,5 +14,9 @@
 
 @property (strong, nonatomic) NSWindowController *addSourceWindow;
 
+@property (strong, nonatomic) NSTimer *refreshTimer;
+
+- (void) configureTimerWithInterval:(NSInteger)interval;
+
 @end
 
