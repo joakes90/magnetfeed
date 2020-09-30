@@ -27,6 +27,8 @@
 
 @property (strong) IBOutlet NSMatrix *autoDownloadMatrix;
 
+@property (weak) IBOutlet NSPopUpButton *refreshPopup;
+
 @end
 
 @implementation SettingsWindowController
@@ -82,6 +84,10 @@
     }
     [_appDelegate.addSourceWindow showWindow:_appDelegate.addSourceWindow.window];
     [_appDelegate.addSourceWindow.window makeKeyAndOrderFront:_appDelegate.addSourceWindow.window];
+}
+
+- (IBAction)refreshPopupChanged:(id)sender {
+    NSLog(@"%ld", self.refreshPopup.indexOfSelectedItem);
 }
 
 - (void)sourceListDidUpdate {

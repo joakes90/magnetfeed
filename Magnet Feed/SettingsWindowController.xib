@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController">
             <connections>
                 <outlet property="SettingsWindow" destination="5xF-7L-LSG" id="jyu-ws-mC6"/>
+                <outlet property="refreshPopup" destination="ZLF-ig-d3y" id="7mf-RB-YWU"/>
                 <outlet property="settingsWindow" destination="5xF-7L-LSG" id="DLr-kd-85c"/>
                 <outlet property="tableView" destination="fpY-GX-ok6" id="657-xD-SvS"/>
             </connections>
@@ -59,6 +60,9 @@
                                             </items>
                                         </menu>
                                     </popUpButtonCell>
+                                    <connections>
+                                        <action selector="refreshPopupChanged:" target="-2" id="1ik-mE-hsb"/>
+                                    </connections>
                                 </popUpButton>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zyG-3z-lBl">
                                     <rect key="frame" x="706" y="379" width="40" height="18"/>
