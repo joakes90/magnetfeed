@@ -76,10 +76,6 @@
     [[NSApplication sharedApplication] terminate:self];
 }
 
-- (void) testTimer {
-    NSLog(@"Fired");
-}
-
 - (void) configureTimerWithInterval:(NSInteger)interval {
     [self.refreshTimer invalidate];
     if (interval <= 0) {
@@ -88,7 +84,7 @@
     }
     self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:interval
                                                          target:self
-                                                         selector:@selector(testTimer)
+                                                       selector:@selector(getNewTorrentsFrom:)
                                                        userInfo:nil repeats:YES];
     [self.refreshTimer fire];
 }
