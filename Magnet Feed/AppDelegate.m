@@ -76,8 +76,21 @@
     [[NSApplication sharedApplication] terminate:self];
 }
 
+- (void) testTimer {
+    NSLog(@"Fired");
+}
+
 - (void) configureTimerWithInterval:(NSInteger)interval {
-    NSLog(@"%ld", interval);
+    [self.refreshTimer invalidate];
+    if (interval <= 0) {
+        self.refreshTimer = nil;
+        return;
+    }
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:interval
+                                                         target:self
+                                                         selector:@selector(testTimer)
+                                                       userInfo:nil repeats:YES];
+    [self.refreshTimer fire];
 }
 
 @end
