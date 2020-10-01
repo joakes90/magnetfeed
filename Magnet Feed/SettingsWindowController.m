@@ -97,13 +97,13 @@
     NSInteger timeInterval;
     switch (interval) {
         case k5min:
-            timeInterval = 5;
+            timeInterval = 5 * 60;
             break;
         case k30min:
-            timeInterval = 30;
+            timeInterval = 30 * 60;
             break;
         case k60min:
-            timeInterval = 60;
+            timeInterval = 60 * 60;
             break;
         case kNA:
             timeInterval = -1;
@@ -123,7 +123,7 @@
     UserDefaultKey key = UserDefaultKeyRefreshInterval;
     NSInteger timeInterval = [[UserDefaultService getValueFor:key] integerValue];
     NSInteger popupIndex;
-    switch (timeInterval/60) {
+    switch (timeInterval / 60) {
         case 5:
             popupIndex = 0;
             break;
@@ -138,7 +138,7 @@
             break;
         default:
             popupIndex = 0;
-            [_appDelegate configureTimerWithInterval:5];
+            [_appDelegate configureTimerWithInterval:300];
             return;
     }
     [_refreshPopup selectItemAtIndex:popupIndex];

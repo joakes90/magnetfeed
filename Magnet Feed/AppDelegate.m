@@ -25,17 +25,15 @@
 
 @property (weak) IBOutlet NSMenu *menu;
 
-@property (strong, nonatomic) NSTimer *checkforUpdates;
-
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [[TorrentService shared] getNewTorrentsFrom:nil];
-
-    // TODO: create a user manipulable timer
-    self.checkforUpdates = [NSTimer scheduledTimerWithTimeInterval:1800 target:[TorrentService shared] selector:@selector(getNewTorrentsFrom:) userInfo:nil repeats:YES];
+    UserDefaultKey key = UserDefaultKeyRefreshInterval;
+    NSInteger timeInterval = [[UserDefaultService getValueFor:key] integerValue];
+    timeInterval = timeInterval != 0 ? timeInterval : 300;
+    [self configureTimerWithInterval:timeInterval];
     [self seeDownloads];
     [self.torrentsWindow showWindow:self];
 }
@@ -79,7 +77,7 @@
 - (void) configureTimerWithInterval:(NSInteger)interval {
     [self.refreshTimer invalidate];
     UserDefaultKey key = UserDefaultKeyRefreshInterval;
-    [UserDefaultService setValue:[NSNumber numberWithInteger:(interval * 60)] for:key];
+    [UserDefaultService setValue:[NSNumber numberWithInteger:interval] for:key];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshIntervalChanged" object:nil];
     if (interval <= 0) {
         self.refreshTimer = nil;
