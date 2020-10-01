@@ -78,13 +78,15 @@
 
 - (void) configureTimerWithInterval:(NSInteger)interval {
     [self.refreshTimer invalidate];
+    UserDefaultKey key = UserDefaultKeyRefreshInterval;
+    [UserDefaultService setValue:[NSNumber numberWithInteger:interval] for:key];
     if (interval <= 0) {
         self.refreshTimer = nil;
         return;
     }
     self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:interval
                                                          target:self
-                                                       selector:@selector(getNewTorrentsFrom:)
+                                                       selector:@selector(refreshTorrents:)
                                                        userInfo:nil repeats:YES];
     [self.refreshTimer fire];
 }

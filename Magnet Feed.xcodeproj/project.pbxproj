@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D016AFB1252623DF0090028F /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D016AFB0252623DF0090028F /* UserDefaultService.swift */; };
 		D03339762497DF28001DE3A2 /* GetTorrentsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */; };
 		D03339782497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03339772497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift */; };
 		D040BAAC247D72B9006D3A77 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D040BAAB247D72B9006D3A77 /* AlertProvider.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D016AFB0252623DF0090028F /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		D03339752497DF28001DE3A2 /* GetTorrentsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTorrentsOperation.swift; sourceTree = "<group>"; };
 		D03339772497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewTorrentsFinishedOperation.swift; sourceTree = "<group>"; };
 		D040BAAB247D72B9006D3A77 /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				D0D180A324475BC600D9F535 /* StringExtensions.swift */,
 				D09F474D247D7FB3004E84C7 /* NotificationExtensions.swift */,
+				D016AFB0252623DF0090028F /* UserDefaultService.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				D0780BB51B354A110034D275 /* SettingsWindowController.m in Sources */,
 				D03339782497EFA0001DE3A2 /* GetNewTorrentsFinishedOperation.swift in Sources */,
 				D09F474E247D7FB3004E84C7 /* NotificationExtensions.swift in Sources */,
+				D016AFB1252623DF0090028F /* UserDefaultService.swift in Sources */,
 				D0780BA61B353A4D0034D275 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
