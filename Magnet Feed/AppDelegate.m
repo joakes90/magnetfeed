@@ -79,7 +79,8 @@
 - (void) configureTimerWithInterval:(NSInteger)interval {
     [self.refreshTimer invalidate];
     UserDefaultKey key = UserDefaultKeyRefreshInterval;
-    [UserDefaultService setValue:[NSNumber numberWithInteger:interval] for:key];
+    [UserDefaultService setValue:[NSNumber numberWithInteger:(interval * 60)] for:key];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshIntervalChanged" object:nil];
     if (interval <= 0) {
         self.refreshTimer = nil;
         return;

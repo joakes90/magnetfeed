@@ -43,6 +43,11 @@
                                              selector: @selector(sourceListDidUpdate)
                                                  name:@"sourceListUpdated"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(configureRefreshPopUp)
+                                                 name:@"refreshIntervalChanged"
+                                               object:nil];
+    [self configureRefreshPopUp];
 //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
 //        [self.autoDownloadMatrix selectCellAtRow:0 column:0];
 //    } else {
@@ -92,13 +97,13 @@
     NSInteger timeInterval;
     switch (interval) {
         case k5min:
-            timeInterval = 5 * 60;
+            timeInterval = 5;
             break;
         case k30min:
-            timeInterval = 30 * 60;
+            timeInterval = 30;
             break;
         case k60min:
-            timeInterval = 60 * 60;
+            timeInterval = 60;
             break;
         case kNA:
             timeInterval = -1;
@@ -112,6 +117,31 @@
 - (void)sourceListDidUpdate {
     self.sources = [TorrentService shared].sources;
     [self.tableView reloadData];
+}
+
+- (void) configureRefreshPopUp {
+    UserDefaultKey key = UserDefaultKeyRefreshInterval;
+    NSInteger timeInterval = [[UserDefaultService getValueFor:key] integerValue];
+    NSInteger popupIndex;
+    switch (timeInterval/60) {
+        case 5:
+            popupIndex = 0;
+            break;
+        case 30:
+            popupIndex = 1;
+            break;
+        case 60:
+            popupIndex = 2;
+            break;
+        case -1:
+            popupIndex = 3;
+            break;
+        default:
+            popupIndex = 0;
+            [_appDelegate configureTimerWithInterval:5];
+            return;
+    }
+    [_refreshPopup selectItemAtIndex:popupIndex];
 }
 
 //- (IBAction)matrixChangedStates:(id)sender {
