@@ -24,12 +24,15 @@ import Foundation
 
 @objc enum UserDefaultKey: Int {
     case refreshInterval
+    case autoDownload
     
     var stringValue: String {
         get {
             switch self {
             case .refreshInterval:
                 return "refreshInterval"
+            case .autoDownload:
+                return "autoDownload"
             }
         }
     }

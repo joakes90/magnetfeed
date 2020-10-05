@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController">
             <connections>
                 <outlet property="SettingsWindow" destination="5xF-7L-LSG" id="jyu-ws-mC6"/>
+                <outlet property="autoDownloadEnabledButton" destination="zyG-3z-lBl" id="52k-TH-14j"/>
                 <outlet property="refreshPopup" destination="ZLF-ig-d3y" id="7mf-RB-YWU"/>
                 <outlet property="settingsWindow" destination="5xF-7L-LSG" id="DLr-kd-85c"/>
                 <outlet property="tableView" destination="fpY-GX-ok6" id="657-xD-SvS"/>
@@ -70,6 +71,9 @@
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="matrixChangedStates:" target="-2" id="n1U-E0-SV4"/>
+                                    </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a8K-p5-Uhn">
                                     <rect key="frame" x="751" y="379" width="42" height="18"/>
@@ -77,6 +81,9 @@
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="matrixChangedStates:" target="-2" id="BuN-RY-vPb"/>
+                                    </connections>
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n7P-PR-yeK">
                                     <rect key="frame" x="18" y="380" width="234" height="16"/>

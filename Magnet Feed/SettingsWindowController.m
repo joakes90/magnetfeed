@@ -17,17 +17,15 @@
 
 @property (weak) IBOutlet NSTableView *tableView;
 
-@property (strong) IBOutlet NSTextField *urlTextField;
+@property (weak) IBOutlet NSButton *autoDownloadEnabledButton;
+
+@property (weak) IBOutlet NSPopUpButton *refreshPopup;
 
 @property (weak) AppDelegate *appDelegate;
 
+@property BOOL autoDownloadEnabled;
+
 @property NSArray *sources;
-
-@property (strong) IBOutlet NSPanel *addFeedWindow;
-
-@property (strong) IBOutlet NSMatrix *autoDownloadMatrix;
-
-@property (weak) IBOutlet NSPopUpButton *refreshPopup;
 
 @end
 
@@ -48,12 +46,8 @@
                                                  name:@"refreshIntervalChanged"
                                                object:nil];
     [self configureRefreshPopUp];
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoDownload"]) {
-//        [self.autoDownloadMatrix selectCellAtRow:0 column:0];
-//    } else {
-//        [self.autoDownloadMatrix selectCellAtRow:0 column:1];
-//
-//    }
+    _autoDownloadEnabled = [[UserDefaultService getValueFor:UserDefaultKeyAutoDownload] boolValue];
+    [self configureRadioButtons];
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
@@ -144,12 +138,18 @@
     [_refreshPopup selectItemAtIndex:popupIndex];
 }
 
-//- (IBAction)matrixChangedStates:(id)sender {
-//    if (self.autoDownloadMatrix.selectedColumn == 0) {
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"autoDownload"];
-//    }else{
-//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"autoDownload"];
-//    }
-//}
+- (void) configureRadioButtons {
+    NSControlStateValue state = _autoDownloadEnabled ? NSControlStateValueOn : NSControlStateValueOff;
+    [_autoDownloadEnabledButton setState:state];
+}
+
+- (IBAction)matrixChangedStates:(id)sender {
+    if (sender == _autoDownloadEnabledButton) {
+        _autoDownloadEnabled = YES;
+    } else {
+        _autoDownloadEnabled = NO;
+    }
+    [UserDefaultService setValue:[NSNumber numberWithBool:_autoDownloadEnabled] for:UserDefaultKeyAutoDownload];
+}
 
 @end
