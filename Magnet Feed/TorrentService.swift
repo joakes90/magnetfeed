@@ -56,7 +56,6 @@ import Cocoa
             return
         }
         let finishOperation = GetNewTorrentsFinishedOperation()
-        // TODO: This should be handleded asyncronously
         sources.forEach({
             // 1. Create operation that parses individual  sources
             let getNewTorrentsOperation = GetTorrentsOperation(source: $0)

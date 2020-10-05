@@ -20,7 +20,14 @@ class GetNewTorrentsFinishedOperation: Operation {
         let predicate = NSPredicate(format: "%K = %@", "reported", NSNumber(booleanLiteral: false))
         let newTorrents = TorrentService.shared.fetchTorrents(predicate: predicate)
         if newTorrents.count > 0 {
-            newTorrents.forEach({ $0.reported = true })
+            newTorrents.forEach { (torrent) in
+                torrent.reported = true
+                if let torrentURL = URL(string: torrent.link),
+                    let autoDownload = UserDefaultService.getValue(for: .autoDownload) as? Bool,
+                   autoDownload {
+                    NSWorkspace.shared.open(torrentURL)
+                }
+            }
             do {
                 try CoreDataService.sharedInstance().managedObjectContext.save()
             } catch {
