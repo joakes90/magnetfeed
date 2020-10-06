@@ -430,6 +430,7 @@
 				INFOPLIST_FILE = "Magnet Feed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1.0;
 				PODS_BUILD_DIR = "";
 				PODS_CONFIGURATION_BUILD_DIR = "";
 				PODS_PODFILE_DIR_PATH = "";
@@ -460,6 +461,7 @@
 				INFOPLIST_FILE = "Magnet Feed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1.0;
 				PODS_BUILD_DIR = "";
 				PODS_CONFIGURATION_BUILD_DIR = "";
 				PODS_PODFILE_DIR_PATH = "";
