@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -30,6 +30,12 @@
                             <menuItem title="Preferences…" keyEquivalent="," id="buV-IE-ffV">
                                 <connections>
                                     <action selector="openSettings:" target="Voe-Tx-rLC" id="Ozo-bP-I2H"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Check for Update..." id="LLd-1c-Jcr">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="UCl-Iv-T2Z" id="uoK-H7-grL"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="L2Z-jK-Rhf"/>
@@ -377,5 +383,6 @@
             </items>
             <point key="canvasLocation" x="139" y="154"/>
         </menu>
+        <customObject id="UCl-Iv-T2Z" customClass="SUUpdater"/>
     </objects>
 </document>

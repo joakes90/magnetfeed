@@ -11,5 +11,7 @@ Current features include
 * Automatic downloads of new torrent
 	* It's recommended this is left disabled if you are not consistently on a VPN or your ISP has a 6 strikes policy
 
+![Magnet Feed Screenshot](https://justinoak.es/images/mfss.png)
+
 Magnet Feed is open source Objective-C and Swift application under active development and open to accepting new pull requests.
 Current areas of focus are unit testing and localization. Please feel free to contribute in any way you see fit.
