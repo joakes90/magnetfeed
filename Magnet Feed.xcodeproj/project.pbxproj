@@ -205,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0780B9B1B35397D0034D275 /* Build configuration list for PBXNativeTarget "Magnet Feed" */;
 			buildPhases = (
+				D016AFCB252CF7410090028F /* Bump build number */,
 				D0780B7C1B35397D0034D275 /* Resources */,
 				D0780B7B1B35397D0034D275 /* Frameworks */,
 				D0780B7A1B35397D0034D275 /* Sources */,
@@ -267,6 +268,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D016AFCB252CF7410090028F /* Bump build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bump build number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Increments build number\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0780B7A1B35397D0034D275 /* Sources */ = {
