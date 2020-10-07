@@ -13,5 +13,7 @@ Current features include
 
 ![Magnet Feed Screenshot](https://justinoak.es/images/mfss.png)
 
+[Download the latest verion here](https://github.com/joakes90/magnetfeed/releases/)
+
 Magnet Feed is open source Objective-C and Swift application under active development and open to accepting new pull requests.
 Current areas of focus are unit testing and localization. Please feel free to contribute in any way you see fit.
